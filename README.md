@@ -1,25 +1,26 @@
-# SQL Fundamentals – Week 1 Day 1
+# SQL JOIN Practice
 
-## Overview
-This repository contains my SQL practice work for Week 1 – Day 1 of my SQL Fundamentals learning journey.
-
-## Tools Used
-- MySQL
-- MySQL Workbench
-- Git & GitHub
+This is my SQL practice project where I learned and practiced different types of JOINs.
 
 ## Topics Covered
-- SELECT statements
-- WHERE clause
-- LIKE operator
-- Filtering data
-- ORDER BY
-- Basic SQL queries
-- Data retrieval and analysis
 
-## Files
-- `queries_day1.sql` – SQL queries practiced during Day 1
-- `sales_result.csv` – Results generated from SQL queries
+* INNER JOIN
+* LEFT JOIN
+* RIGHT JOIN
+* SELF JOIN
+* Table Aliases
+* Handling Duplicate Rows
+* `DISTINCT`
 
-## Learning Objective
-To build a strong foundation in SQL by writing basic queries and learning how to retrieve, filter, and analyze data from a database.
+
+## Tools Used
+
+* MySQL
+* VS Code
+* GitHub
+
+## About
+
+I created this project to improve my SQL skills and learn how JOINs work with different tables.
+
+**Author:** Aishwarya Naik

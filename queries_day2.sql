@@ -1,97 +1,75 @@
-SHOW DATABASES;
+create database Sales;
+Use sales;
+CREATE TABLE customers (
+    customer_id INT,
+    customer_name VARCHAR(50),
+    city VARCHAR(50)
+);
+CREATE TABLE orders (
+    order_id INT,
+    customer_id INT,
+    product VARCHAR(50),
+    amount INT
+);
+CREATE TABLE employees (
+    employee_id INT,
+    employee_name VARCHAR(50),
+    manager_id INT
+);
+INSERT INTO customers VALUES
+(1, 'Rahul', 'Bangalore'),
+(2, 'Priya', 'Mumbai'),
+(3, 'Amit', 'Delhi'),
+(4, 'Neha', 'Chennai');
+INSERT INTO orders VALUES
+(101, 1, 'Laptop', 50000),
+(102, 1, 'Mouse', 1000),
+(103, 2, 'Keyboard', 2000),
+(104, 5, 'Monitor', 10000);
+INSERT INTO employees VALUES
+(1, 'Ravi', NULL),
+(2, 'Priya', 1),
+(3, 'Amit', 1),
+(4, 'Neha', 2);
 
-USE sql_practice_db;
-
-SHOW TABLES;
-
--- 1. INNER JOIN
-SELECT c.CustomerID, c.CustomerName, o.OrderID
-FROM Customers c
-INNER JOIN Orders o
-ON c.CustomerID = o.CustomerID;
-
-DESCRIBE customers;
-
-DESCRIBE orders;
-
-DESCRIBE order_details;
-
-DESCRIBE employees;
-
-USE sql_practice_db;
-
--- 1. INNER JOIN
+-- INNER JOIN
 SELECT 
-    c.customer_id,
-    c.customer_name,
-    o.order_id,
-    o.order_date,
-    o.order_status
+	c.customer_name,
+    o.product,
+    o.amount
 FROM customers c
 INNER JOIN orders o
-    ON c.customer_id = o.customer_id;
-    
--- 2. LEFT JOIN
-SELECT 
-    c.customer_id,
-    c.customer_name,
-    o.order_id,
-    o.order_date,
-    o.order_status
-FROM customers c
-LEFT JOIN orders o
-    ON c.customer_id = o.customer_id;
-    
--- 3. RIGHT JOIN
-SELECT 
-    c.customer_id,
-    c.customer_name,
-    o.order_id,
-    o.order_date,
-    o.order_status
-FROM customers c
-RIGHT JOIN orders o
-    ON c.customer_id = o.customer_id;
-    
+ON c.customer_id = o.customer_id;
 
--- 4. FULL OUTER JOIN
--- MySQL does not directly support FULL OUTER JOIN
-SELECT 
-    c.customer_id,
+-- LEFT JOIN
+SELECT
     c.customer_name,
-    o.order_id,
-    o.order_date,
-    o.order_status
-FROM customers c
-LEFT JOIN orders o
-    ON c.customer_id = o.customer_id  
-    
-UNION
+    o.product,
+    o.amount
+FROM customers AS c
+LEFT JOIN orders AS o
+ON c.customer_id = o.customer_id;
 
-SELECT 
-    c.customer_id,
+-- RIGHT JOIN
+SELECT
     c.customer_name,
-    o.order_id,
-    o.order_date,
-    o.order_status
-FROM customers c
-RIGHT JOIN orders o
-    ON c.customer_id = o.customer_id;    
-    
--- 5. FIND CUSTOMERS WITH MULTIPLE ORDERS
-SELECT 
-    customer_id,
-    COUNT(*) AS order_count
-FROM orders
-GROUP BY customer_id
-HAVING COUNT(*) > 1;
+    o.product,
+    o.amount
+FROM customers AS c
+RIGHT JOIN orders AS o
+ON c.customer_id = o.customer_id;
 
--- 6. SELF JOIN
-SELECT 
-    e.employee_id,
-    e.employee_name AS employee,
-    m.employee_name AS manager
-FROM employees e
+-- Understand JOIN duplicates
+SELECT DISTINCT
+    c.customer_name
+FROM customers AS c
+JOIN orders AS o
+ON c.customer_id = o.customer_id;
+
+-- SELF JOIN
+SELECT
+	e.employee_name,
+    m.employee_name
+FROM Employees e
 LEFT JOIN employees m
-    ON e.manager_id = m.employee_id;
-    
+ON m.employee_id = e.employee_id;
