@@ -12,28 +12,30 @@ print("\nDataset Shape:")
 print(df.shape)
 
 
-
 # 2. Identify and Quantify Missing Values
 print("\nMissing Values:")
 print(df.isnull().sum())
 
 
-
 # 3. Apply Imputation Strategies
-# Mean imputation for numerical columns
+
+# Numerical columns
 numeric_columns = df.select_dtypes(include=np.number).columns
 
+# Mean imputation
 for column in numeric_columns:
     if df[column].isnull().sum() > 0:
         df[column] = df[column].fillna(df[column].mean())
 
-# Median imputation for numerical columns
+# Median imputation
 for column in numeric_columns:
     if df[column].isnull().sum() > 0:
         df[column] = df[column].fillna(df[column].median())
 
-# Mode imputation for categorical columns
-categorical_columns = categorical_columns = df.select_dtypes(include="str").columns
+# Categorical columns
+categorical_columns = df.select_dtypes(include="str").columns
+
+# Mode imputation
 for column in categorical_columns:
     if df[column].isnull().sum() > 0:
         df[column] = df[column].fillna(df[column].mode()[0])
@@ -45,9 +47,11 @@ print("\nMissing Values After Imputation:")
 print(df.isnull().sum())
 
 
-
 # 4. Detect and Handle Outliers Using IQR
-for column in numeric_columns:
+# IQR is applied only to appropriate continuous numerical columns
+outlier_columns = ["Age", "ExperienceInCurrentDomain"]
+
+for column in outlier_columns:
 
     Q1 = df[column].quantile(0.25)
     Q3 = df[column].quantile(0.75)
@@ -57,8 +61,10 @@ for column in numeric_columns:
     lower_limit = Q1 - 1.5 * IQR
     upper_limit = Q3 + 1.5 * IQR
 
-    outliers = ((df[column] < lower_limit) |
-                (df[column] > upper_limit)).sum()
+    outliers = (
+        (df[column] < lower_limit) |
+        (df[column] > upper_limit)
+    ).sum()
 
     print(f"\nOutliers in {column}: {outliers}")
 
@@ -67,7 +73,6 @@ for column in numeric_columns:
         lower=lower_limit,
         upper=upper_limit
     )
-
 
 
 # 5. Standardise Inconsistent String Values
@@ -80,18 +85,15 @@ for column in categorical_columns:
     df[column] = df[column].str.title()
 
 
-# Example of standardising common variations
-# Modify these according to your actual dataset
-
+# Standardise common variations
 for column in categorical_columns:
 
     df[column] = df[column].replace({
         "M": "Male",
         "F": "Female",
-        "male": "Male",
-        "female": "Female"
+        "Male": "Male",
+        "Female": "Female"
     })
-
 
 
 # 6. Create Data Quality Log
@@ -107,16 +109,15 @@ quality_log = pd.DataFrame({
 
     "Action Taken": [
         "Checked missing values using isnull().sum()",
-        "Filled numerical missing values",
-        "Filled categorical missing values",
+        "Filled numerical missing values using mean and median",
+        "Filled categorical missing values using mode",
         "Forward-filled remaining missing values",
-        "Capped values outside IQR limits",
+        "Capped continuous numerical outliers using IQR limits",
         "Removed whitespace and standardised text casing"
     ]
 })
 
 quality_log.to_csv("data_quality_log.csv", index=False)
-
 
 
 # 7. Save Cleaned Dataset
