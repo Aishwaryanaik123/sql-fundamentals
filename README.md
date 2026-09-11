@@ -1,25 +1,54 @@
-# SQL Fundamentals – Week 1 Day 1
+# Data Cleaning – Week 2 Day 4
 
-## Overview
-This repository contains my SQL practice work for Week 1 – Day 1 of my SQL Fundamentals learning journey.
+## Project Overview
 
-## Tools Used
-- MySQL
-- MySQL Workbench
-- Git & GitHub
+This project focuses on cleaning and preparing an Employee dataset for further data analysis. The dataset contains employee information such as education, joining year, city, payment tier, age, gender, experience, and employee attrition.
 
-## Topics Covered
-- SELECT statements
-- WHERE clause
-- LIKE operator
-- Filtering data
-- ORDER BY
-- Basic SQL queries
-- Data retrieval and analysis
+## Dataset
+
+The dataset used in this project is `Employee.csv`.
+
+The dataset contains 4,653 rows and 9 columns.
+
+## Data Cleaning Tasks
+
+The following data cleaning operations were performed:
+
+1. Identified and quantified missing values using `isnull().sum()`.
+2. Applied missing value imputation strategies including mean, median, mode, and forward-fill.
+3. Detected numerical outliers using the IQR method.
+4. Capped detected outliers using IQR limits.
+5. Standardised inconsistent string values by removing extra whitespace and standardising text casing.
+6. Created a data quality log to document the cleaning decisions.
+7. Exported the cleaned dataset as `cleaned_employee.csv`.
 
 ## Files
-- `queries_day1.sql` – SQL queries practiced during Day 1
-- `sales_result.csv` – Results generated from SQL queries
 
-## Learning Objective
-To build a strong foundation in SQL by writing basic queries and learning how to retrieve, filter, and analyze data from a database.
+* `Employee.csv` – Original employee dataset
+* `data_cleaning.py` – Python data cleaning script
+* `cleaned_employee.csv` – Cleaned dataset
+* `data_quality_log.csv` – Data cleaning decisions and actions
+* `README.md` – Project documentation
+
+## Technologies Used
+
+* Python
+* Pandas
+* NumPy
+* PyCharm
+* Git
+* GitHub
+
+## Output
+
+The cleaned dataset is saved as:
+
+`cleaned_employee.csv`
+
+The data quality log is saved as:
+
+`data_quality_log.csv`
+
+## Learning Outcome
+
+This task provided practical experience in handling missing values, detecting outliers, standardising categorical data, documenting data quality decisions, and preparing a dataset for further analysis.

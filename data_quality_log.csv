@@ -1,0 +1,7 @@
+Cleaning Step,Action Taken
+Missing value identification,Checked missing values using isnull().sum()
+Mean/Median imputation,Filled numerical missing values using mean and median
+Mode imputation,Filled categorical missing values using mode
+Forward-fill,Forward-filled remaining missing values
+IQR outlier handling,Capped continuous numerical outliers using IQR limits
+String standardisation,Removed whitespace and standardised text casing
