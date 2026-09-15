@@ -1,0 +1,192 @@
+data_contract:
+  name: Employee Data Quality Contract
+  version: "1.0"
+  status: active
+
+  producer:
+    name: Aishwarya
+    role: Data Analyst
+    responsibility:
+      - Provide the Employee dataset
+      - Maintain data quality
+      - Validate the dataset before delivery
+
+  consumer:
+    name: BI Dashboard
+    role: Business Intelligence
+    responsibility:
+      - Consume validated employee data
+      - Use the data for reporting and dashboards
+      - Avoid using records that fail critical quality checks
+
+  dataset:
+    name: Employee
+    source_file: Employee.csv
+    format: CSV
+    row_count: 4653
+    column_count: 9
+
+  schema:
+
+    - name: Education
+      type: string
+      nullable: false
+      description: Highest education level of the employee
+
+    - name: JoiningYear
+      type: integer
+      nullable: false
+      description: Year in which the employee joined the organization
+      valid_range:
+        min: 2000
+        max: 2020
+
+    - name: City
+      type: string
+      nullable: false
+      description: Employee city
+      allowed_values:
+        - Bangalore
+        - Pune
+        - New Delhi
+
+    - name: PaymentTier
+      type: integer
+      nullable: false
+      description: Employee payment tier
+      valid_range:
+        min: 1
+        max: 3
+
+    - name: Age
+      type: integer
+      nullable: false
+      description: Employee age
+      valid_range:
+        min: 18
+        max: 60
+
+    - name: Gender
+      type: string
+      nullable: false
+      description: Employee gender
+      allowed_values:
+        - Male
+        - Female
+
+    - name: EverBenched
+      type: string
+      nullable: false
+      description: Indicates whether the employee was ever benched
+      allowed_values:
+        - Yes
+        - No
+
+    - name: ExperienceInCurrentDomain
+      type: integer
+      nullable: false
+      description: Years of experience in the current domain
+      valid_range:
+        min: 0
+        max: 20
+
+    - name: LeaveOrNot
+      type: integer
+      nullable: false
+      description: Employee leave status
+      allowed_values:
+        - 0
+        - 1
+
+  quality_rules:
+
+    completeness:
+      rule: Required columns must not contain null values
+      validation: Great Expectations
+
+    validity:
+      rule: Values must satisfy defined ranges and allowed categories
+      validation: Great Expectations
+
+    uniqueness:
+      rule: Duplicate records should be identified and reviewed
+      current_duplicate_count: 1889
+
+    consistency:
+      rule: Categorical values must follow standardized formats
+      validation: Great Expectations
+
+    accuracy:
+      rule: Numeric values must fall within realistic business ranges
+      validation: Great Expectations
+
+    timeliness:
+      rule: Dataset should be validated before each BI dashboard refresh
+      validation_frequency: Before dashboard refresh
+
+  validation:
+    framework: Great Expectations
+    expectation_count: 8
+    intentional_test_errors: 3
+    expected_failed_expectations: 3
+
+  privacy:
+
+    PII_classification:
+      Education:
+        classification: Non-PII
+        strategy: No masking required
+
+      JoiningYear:
+        classification: Non-PII
+        strategy: No masking required
+
+      City:
+        classification: Indirectly identifying
+        strategy: Use aggregated city-level reporting where possible
+
+      PaymentTier:
+        classification: Non-PII
+        strategy: No masking required
+
+      Age:
+        classification: Potentially sensitive
+        strategy: Prefer age bands in external dashboards
+
+      Gender:
+        classification: Personal attribute
+        strategy: Restrict access and use only when analytically required
+
+      EverBenched:
+        classification: Employment-related information
+        strategy: Restrict access to authorized users
+
+      ExperienceInCurrentDomain:
+        classification: Employment-related information
+        strategy: Restrict access to authorized users
+
+      LeaveOrNot:
+        classification: Employment-related information
+        strategy: Restrict access to authorized users
+
+  security:
+    access_control:
+      - BI analysts
+      - Authorized data analysts
+
+    masking:
+      strategy: Apply masking or aggregation to sensitive employee attributes
+      purpose: Minimize unnecessary exposure of employee information
+
+  delivery:
+    format: CSV
+    consumer: BI Dashboard
+    validation_required_before_delivery: true
+
+  acceptance_criteria:
+    - All required columns are present
+    - No unexpected null values exist
+    - Numeric values satisfy defined ranges
+    - Categorical values match allowed values
+    - Data quality validation is completed before BI consumption
+    - Sensitive employee information is appropriately protected

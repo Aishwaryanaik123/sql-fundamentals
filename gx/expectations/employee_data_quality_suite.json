@@ -1,0 +1,103 @@
+{
+  "expectations": [
+    {
+      "id": "12c398a7-7eb5-4d39-88fb-e3e6e7fb6299",
+      "kwargs": {
+        "column": "Education"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "f8486096-5f2b-467b-ba55-a066f0a9ba8c",
+      "kwargs": {
+        "column": "JoiningYear",
+        "max_value": 2020.0,
+        "min_value": 2000.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "f71dced1-1066-411f-a6a3-027596250fa7",
+      "kwargs": {
+        "column": "City",
+        "value_set": [
+          "Bangalore",
+          "Pune",
+          "New Delhi"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "b1dc0859-e602-464d-8ecf-5250a45ac1e2",
+      "kwargs": {
+        "column": "PaymentTier",
+        "max_value": 3.0,
+        "min_value": 1.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "b282fa32-d5f1-4c9e-8b67-1fd5bd785e71",
+      "kwargs": {
+        "column": "Age",
+        "max_value": 60.0,
+        "min_value": 18.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "dd4ae185-8d61-4c7a-a0d4-172c6435fb50",
+      "kwargs": {
+        "column": "Gender",
+        "value_set": [
+          "Male",
+          "Female"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "909d140b-2830-470c-ac1a-927f8955e505",
+      "kwargs": {
+        "column": "ExperienceInCurrentDomain",
+        "max_value": 20.0,
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "a183bcea-a2f0-45b1-9844-69ad42fa9b53",
+      "kwargs": {
+        "column": "LeaveOrNot",
+        "value_set": [
+          0,
+          1
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    }
+  ],
+  "id": "560a2241-f288-422b-bb46-739b8c8d7544",
+  "meta": {
+    "great_expectations_version": "1.23.0"
+  },
+  "name": "employee_data_quality_suite",
+  "notes": null
+}
