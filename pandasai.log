@@ -1,0 +1,1724 @@
+2026-10-03 13:00:38 [INFO] Question: Which state has the highest number of confirmed cases?
+2026-10-03 13:00:39 [INFO] Running PandasAI with openai LLM...
+2026-10-03 13:00:39 [INFO] Prompt ID: bd69ef65-125f-4e16-84b1-edda44d7cb4d
+2026-10-03 13:00:39 [INFO] Generating new code...
+2026-10-03 13:00:39 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2026-10-03 13:00:40 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:00:40 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:00:40 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:40 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:40 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:00:40 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:00:40 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:00:40 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:40 [INFO] Retrying Code Generation (1/3)...
+2026-10-03 13:00:40 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:40 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:00:41 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:00:41 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:00:41 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:41 [INFO] Retrying Code Generation (2/3)...
+2026-10-03 13:00:41 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:41 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:00:41 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:00:41 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:00:41 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:41 [INFO] Retrying Code Generation (3/3)...
+2026-10-03 13:00:41 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:41 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:00:42 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:00:42 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:00:42 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:00:42 [INFO] Maximum retry attempts exceeded. Last error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_API_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:01:52 [INFO] Question: Which state has the highest number of confirmed cases?
+2026-10-03 13:01:52 [INFO] Running PandasAI with openai LLM...
+2026-10-03 13:01:52 [INFO] Prompt ID: e6b25a96-882f-40d4-ac34-973c1da296a9
+2026-10-03 13:01:52 [INFO] Generating new code...
+2026-10-03 13:01:52 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2026-10-03 13:01:53 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:01:53 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:01:53 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:53 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:53 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:01:54 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:01:54 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:01:54 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:54 [INFO] Retrying Code Generation (1/3)...
+2026-10-03 13:01:54 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:54 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:01:55 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:01:55 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:01:55 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:55 [INFO] Retrying Code Generation (2/3)...
+2026-10-03 13:01:55 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:55 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:01:56 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:01:56 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:01:56 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:56 [INFO] Retrying Code Generation (3/3)...
+2026-10-03 13:01:56 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:56 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:01:56 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-10-03 13:01:56 [INFO] An error occurred during code generation: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:01:56 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2026-10-03 13:01:56 [INFO] Maximum retry attempts exceeded. Last error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: YOUR_ACT*******_KEY. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2026-10-03 13:07:30 [INFO] Question: Which state has the highest number of confirmed cases?
+2026-10-03 13:07:30 [INFO] Running PandasAI with openai LLM...
+2026-10-03 13:07:30 [INFO] Prompt ID: 52cb9024-ba5c-4b14-aa88-a985ccf8dec9
+2026-10-03 13:07:30 [INFO] Generating new code...
+2026-10-03 13:07:30 [INFO] Using Prompt: <tables>
+
+<table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+</tables>
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+At the end, declare "result" variable as a dictionary of type and value in the following format:
+
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+
+
+Generate python code and return full updated code:
+
+### Note: Use only relevant table for query and do aggregation, sorting, joins and grouby through sql query
+2026-10-03 13:07:34 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:34 [INFO] Retrying request to /chat/completions in 0.388454 seconds
+2026-10-03 13:07:35 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:35 [INFO] Retrying request to /chat/completions in 0.889932 seconds
+2026-10-03 13:07:37 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:37 [INFO] An error occurred during code generation: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+2026-10-03 13:07:37 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:37 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:37 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:07:38 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:38 [INFO] Retrying request to /chat/completions in 0.478674 seconds
+2026-10-03 13:07:39 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:39 [INFO] Retrying request to /chat/completions in 0.986848 seconds
+2026-10-03 13:07:40 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:40 [INFO] An error occurred during code generation: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+2026-10-03 13:07:40 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:40 [INFO] Retrying Code Generation (1/3)...
+2026-10-03 13:07:40 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:41 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:07:41 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:41 [INFO] Retrying request to /chat/completions in 0.476079 seconds
+2026-10-03 13:07:43 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:43 [INFO] Retrying request to /chat/completions in 0.785625 seconds
+2026-10-03 13:07:44 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:44 [INFO] An error occurred during code generation: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+2026-10-03 13:07:44 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:44 [INFO] Retrying Code Generation (2/3)...
+2026-10-03 13:07:44 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:44 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:07:44 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:44 [INFO] Retrying request to /chat/completions in 0.443862 seconds
+2026-10-03 13:07:45 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:45 [INFO] Retrying request to /chat/completions in 0.941222 seconds
+2026-10-03 13:07:47 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:47 [INFO] An error occurred during code generation: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+2026-10-03 13:07:47 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:47 [INFO] Retrying Code Generation (3/3)...
+2026-10-03 13:07:47 [INFO] Execution failed with error: Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:47 [INFO] Using Prompt: <table dialect="duckdb" table_name="table_a5f0dc6faaf4b6e182318f6a5bd5379e" columns="[{"name": "State", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Active", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Last_Updated_Time", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Migrated_Other", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_code", "type": "string", "description": null, "expression": null, "alias": null}, {"name": "Delta_Confirmed", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Recovered", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "Delta_Deaths", "type": "integer", "description": null, "expression": null, "alias": null}, {"name": "State_Notes", "type": "string", "description": null, "expression": null, "alias": null}]" dimensions="38x12">
+State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
+Total,34285612,33661339,458470,152606,13/08/2021 23:27:22,13197,TT,0,0,0,
+Andaman and Nicobar Islands,7651,7518,129,4,13/08/2021 23:27:22,0,AN,0,0,0,
+Andhra Pradesh,2066450,2047722,14373,4355,13/08/2021 23:27:22,0,AP,0,0,0,
+Arunachal Pradesh,55155,54774,280,101,13/08/2021 23:27:22,0,AR,0,0,0,[July 25]: All numbers corresponding to Papum Pare and Captial Complex are tracked under Papum Pare district.
+Assam,610645,600974,5997,2327,13/08/2021 23:27:22,1347,AS,0,0,0,[Jan 1]: 1347 cases i.e Covid +'tive patients dead for other reasons have been deducted fom active count.
+</table>
+
+
+The following functions have already been provided. Please use them as needed and do not redefine them.
+<function>
+def execute_sql_query(sql_query: str) -> pd.DataFrame
+    """This method connects to the database, executes the sql query and returns the dataframe"""
+</function>
+
+
+The user asked the following question:
+### QUERY
+ Which state has the highest number of confirmed cases?
+
+You generated the following Python code:
+None
+
+However, it resulted in the following error:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 176, in generate_code_with_retries
+    return self.generate_code(query)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\agent\base.py", line 119, in generate_code
+    code = self._code_generator.generate_code(prompt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 52, in generate_code
+    raise e
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+
+Fix the python code above and return the new python code but the code generated should use execute_sql_query function
+2026-10-03 13:07:47 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:47 [INFO] Retrying request to /chat/completions in 0.484288 seconds
+2026-10-03 13:07:49 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:49 [INFO] Retrying request to /chat/completions in 0.768118 seconds
+2026-10-03 13:07:51 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-10-03 13:07:51 [INFO] An error occurred during code generation: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+2026-10-03 13:07:51 [INFO] Stack Trace:
+Traceback (most recent call last):
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\core\code_generation\base.py", line 33, in generate_code
+    code = self._context.config.llm.generate_code(prompt, self._context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai\llm\base.py", line 173, in generate_code
+    response = self.call(instruction, context)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 188, in call
+    self.chat_completion(self.last_prompt, memory)
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\pandasai_openai\base.py", line 165, in chat_completion
+    response = self.client.create(**params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1147, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Cynaris Internship\pandasai-week-5-day-1\venv\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
+
+2026-10-03 13:07:51 [INFO] Maximum retry attempts exceeded. Last error: Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}
