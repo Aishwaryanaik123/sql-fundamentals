@@ -1,0 +1,1 @@
+Vanna, Python, SQLite, FastAPI, Uvicorn, OpenAI API, Pydantic, VS Code, Git, GitHub

@@ -1,0 +1,14 @@
+Question: What is the total number of sales records?
+SQL: SELECT COUNT(*) AS total_records FROM sales;
+
+Question: What is the total sales revenue?
+SQL: SELECT SUM(quantity * unit_price) AS total_revenue FROM sales;
+
+Question: What is the average unit price?
+SQL: SELECT AVG(unit_price) AS average_unit_price FROM sales;
+
+Question: How many units were sold in Bangalore?
+SQL: SELECT SUM(quantity) AS total_units FROM sales WHERE region = 'Bangalore';
+
+Question: What is the revenue by product?
+SQL: SELECT product, SUM(quantity * unit_price) AS revenue FROM sales GROUP BY product ORDER BY revenue DESC;
