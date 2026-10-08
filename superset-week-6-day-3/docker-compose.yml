@@ -1,0 +1,13 @@
+# Supporting Docker configuration for Apache Superset
+# This file is included for reference/submission documentation.
+# The requested package is already prepared with the dashboard assets.
+
+services:
+  superset:
+    image: apache/superset:latest
+    container_name: superset
+    ports:
+      - "8088:8088"
+    environment:
+      SUPERSET_SECRET_KEY: "change-this-secret-key"
+    restart: unless-stopped
