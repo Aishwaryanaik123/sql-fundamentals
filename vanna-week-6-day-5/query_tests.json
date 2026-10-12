@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the total revenue?",
+    "sql": "SELECT ROUND(SUM(revenue), 2) AS total_revenue FROM sales;"
+  },
+  {
+    "question": "How many sales records are there?",
+    "sql": "SELECT COUNT(*) AS sales_count FROM sales;"
+  },
+  {
+    "question": "Show total revenue by region.",
+    "sql": "SELECT region, ROUND(SUM(revenue), 2) AS total_revenue FROM sales GROUP BY region ORDER BY total_revenue DESC;"
+  },
+  {
+    "question": "Which product sold the most units?",
+    "sql": "SELECT product, SUM(quantity) AS units_sold FROM sales GROUP BY product ORDER BY units_sold DESC LIMIT 1;"
+  },
+  {
+    "question": "Show monthly revenue.",
+    "sql": "SELECT substr(sale_date, 1, 7) AS month, ROUND(SUM(revenue), 2) AS revenue FROM sales GROUP BY month ORDER BY month;"
+  },
+  {
+    "question": "What is the average sale revenue?",
+    "sql": "SELECT ROUND(AVG(revenue), 2) AS average_revenue FROM sales;"
+  },
+  {
+    "question": "How much revenue came from the South region?",
+    "sql": "SELECT ROUND(SUM(revenue), 2) AS south_revenue FROM sales WHERE region = 'South';"
+  },
+  {
+    "question": "List all products in Electronics.",
+    "sql": "SELECT DISTINCT product FROM sales WHERE category = 'Electronics' ORDER BY product;"
+  },
+  {
+    "question": "What is the total quantity sold?",
+    "sql": "SELECT SUM(quantity) AS total_quantity FROM sales;"
+  },
+  {
+    "question": "Show revenue by category.",
+    "sql": "SELECT category, ROUND(SUM(revenue), 2) AS total_revenue FROM sales GROUP BY category ORDER BY total_revenue DESC;"
+  }
+]
