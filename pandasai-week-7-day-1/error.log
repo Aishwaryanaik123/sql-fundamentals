@@ -1,0 +1,2 @@
+2026-10-03 13:44:58,359 - ERROR - Dataset file not found: [Errno 2] No such file or directory: 'data/wrong_file.csv'
+2026-10-03 13:46:50,045 - ERROR - Dataset file not found: [Errno 2] No such file or directory: 'data/wrong_file.csv'
