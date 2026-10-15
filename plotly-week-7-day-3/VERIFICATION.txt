@@ -1,0 +1,2 @@
+Verification status: Plotly chart script executed successfully in the current environment.
+Generated HTML files are included in outputs/.
