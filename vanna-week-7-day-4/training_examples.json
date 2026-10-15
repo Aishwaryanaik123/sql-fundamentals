@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is the total revenue from completed sales?",
+    "sql": "SELECT ROUND(SUM(quantity * unit_price), 2) AS total_revenue FROM sales WHERE status = 'Completed';"
+  },
+  {
+    "question": "Show total revenue by region for completed sales.",
+    "sql": "SELECT region, ROUND(SUM(quantity * unit_price), 2) AS total_revenue FROM sales WHERE status = 'Completed' GROUP BY region ORDER BY total_revenue DESC;"
+  },
+  {
+    "question": "How many sales are pending?",
+    "sql": "SELECT COUNT(*) AS pending_sales FROM sales WHERE status = 'Pending';"
+  },
+  {
+    "question": "Which product has the highest completed-sales revenue?",
+    "sql": "SELECT product, ROUND(SUM(quantity * unit_price), 2) AS revenue FROM sales WHERE status = 'Completed' GROUP BY product ORDER BY revenue DESC LIMIT 1;"
+  },
+  {
+    "question": "What is the average order value for completed sales?",
+    "sql": "SELECT ROUND(AVG(quantity * unit_price), 2) AS average_order_value FROM sales WHERE status = 'Completed';"
+  }
+]

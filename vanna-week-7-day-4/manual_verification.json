@@ -1,0 +1,178 @@
+[
+  {
+    "question": "What is the total revenue from completed sales?",
+    "sql": "SELECT ROUND(SUM(quantity * unit_price), 2) AS total_revenue FROM sales WHERE status = 'Completed';",
+    "result": [
+      {
+        "total_revenue": 393000.0
+      }
+    ]
+  },
+  {
+    "question": "Show total revenue by region for completed sales.",
+    "sql": "SELECT region, ROUND(SUM(quantity * unit_price), 2) AS total_revenue FROM sales WHERE status = 'Completed' GROUP BY region ORDER BY total_revenue DESC;",
+    "result": [
+      {
+        "region": "South",
+        "total_revenue": 218000.0
+      },
+      {
+        "region": "North",
+        "total_revenue": 94000.0
+      },
+      {
+        "region": "West",
+        "total_revenue": 66000.0
+      },
+      {
+        "region": "East",
+        "total_revenue": 15000.0
+      }
+    ]
+  },
+  {
+    "question": "How many sales are pending?",
+    "sql": "SELECT COUNT(*) AS pending_sales FROM sales WHERE status = 'Pending';",
+    "result": [
+      {
+        "pending_sales": 2
+      }
+    ]
+  },
+  {
+    "question": "Which product has the highest completed-sales revenue?",
+    "sql": "SELECT product, ROUND(SUM(quantity * unit_price), 2) AS revenue FROM sales WHERE status = 'Completed' GROUP BY product ORDER BY revenue DESC LIMIT 1;",
+    "result": [
+      {
+        "product": "Laptop",
+        "revenue": 165000.0
+      }
+    ]
+  },
+  {
+    "question": "What is the average order value for completed sales?",
+    "sql": "SELECT ROUND(AVG(quantity * unit_price), 2) AS average_order_value FROM sales WHERE status = 'Completed';",
+    "result": [
+      {
+        "average_order_value": 43666.67
+      }
+    ]
+  },
+  {
+    "question": "How many completed sales are there?",
+    "sql": "SELECT COUNT(*) AS completed_sales FROM sales WHERE status = 'Completed';",
+    "result": [
+      {
+        "completed_sales": 9
+      }
+    ]
+  },
+  {
+    "question": "List all sales from the South region.",
+    "sql": "SELECT * FROM sales WHERE region = 'South' ORDER BY order_date;",
+    "result": [
+      {
+        "sale_id": 1,
+        "order_date": "2026-01-05",
+        "customer_name": "Asha",
+        "region": "South",
+        "product": "Laptop",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 55000.0,
+        "status": "Completed"
+      },
+      {
+        "sale_id": 3,
+        "order_date": "2026-01-12",
+        "customer_name": "Meera",
+        "region": "South",
+        "product": "Desk",
+        "category": "Furniture",
+        "quantity": 4,
+        "unit_price": 7000.0,
+        "status": "Completed"
+      },
+      {
+        "sale_id": 6,
+        "order_date": "2026-02-17",
+        "customer_name": "Arjun",
+        "region": "South",
+        "product": "Phone",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 22000.0,
+        "status": "Completed"
+      },
+      {
+        "sale_id": 10,
+        "order_date": "2026-03-22",
+        "customer_name": "Vikram",
+        "region": "South",
+        "product": "Tablet",
+        "category": "Electronics",
+        "quantity": 2,
+        "unit_price": 18000.0,
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "question": "What is the total quantity sold for each product?",
+    "sql": "SELECT product, SUM(quantity) AS total_quantity FROM sales GROUP BY product ORDER BY total_quantity DESC;",
+    "result": [
+      {
+        "product": "Chair",
+        "total_quantity": 16
+      },
+      {
+        "product": "Phone",
+        "total_quantity": 9
+      },
+      {
+        "product": "Desk",
+        "total_quantity": 9
+      },
+      {
+        "product": "Tablet",
+        "total_quantity": 7
+      },
+      {
+        "product": "Laptop",
+        "total_quantity": 3
+      }
+    ]
+  },
+  {
+    "question": "Show monthly revenue for completed sales.",
+    "sql": "SELECT substr(order_date, 1, 7) AS month, ROUND(SUM(quantity * unit_price), 2) AS revenue FROM sales WHERE status = 'Completed' GROUP BY month ORDER BY month;",
+    "result": [
+      {
+        "month": "2026-01",
+        "revenue": 204000.0
+      },
+      {
+        "month": "2026-02",
+        "revenue": 69000.0
+      },
+      {
+        "month": "2026-03",
+        "revenue": 106000.0
+      },
+      {
+        "month": "2026-04",
+        "revenue": 14000.0
+      }
+    ]
+  },
+  {
+    "question": "Which region has the most completed orders?",
+    "sql": "SELECT region, COUNT(*) AS completed_orders FROM sales WHERE status = 'Completed' GROUP BY region ORDER BY completed_orders DESC LIMIT 1;",
+    "result": [
+      {
+        "region": "South",
+        "completed_orders": 4
+      }
+    ]
+  }
+]

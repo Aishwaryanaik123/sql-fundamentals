@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the total revenue from completed sales?",
+    "expected_sql": "SELECT ROUND(SUM(quantity * unit_price), 2) AS total_revenue FROM sales WHERE status = 'Completed';"
+  },
+  {
+    "question": "Show total revenue by region for completed sales.",
+    "expected_sql": "SELECT region, ROUND(SUM(quantity * unit_price), 2) AS total_revenue FROM sales WHERE status = 'Completed' GROUP BY region ORDER BY total_revenue DESC;"
+  },
+  {
+    "question": "How many sales are pending?",
+    "expected_sql": "SELECT COUNT(*) AS pending_sales FROM sales WHERE status = 'Pending';"
+  },
+  {
+    "question": "Which product has the highest completed-sales revenue?",
+    "expected_sql": "SELECT product, ROUND(SUM(quantity * unit_price), 2) AS revenue FROM sales WHERE status = 'Completed' GROUP BY product ORDER BY revenue DESC LIMIT 1;"
+  },
+  {
+    "question": "What is the average order value for completed sales?",
+    "expected_sql": "SELECT ROUND(AVG(quantity * unit_price), 2) AS average_order_value FROM sales WHERE status = 'Completed';"
+  },
+  {
+    "question": "How many completed sales are there?",
+    "expected_sql": "SELECT COUNT(*) AS completed_sales FROM sales WHERE status = 'Completed';"
+  },
+  {
+    "question": "List all sales from the South region.",
+    "expected_sql": "SELECT * FROM sales WHERE region = 'South' ORDER BY order_date;"
+  },
+  {
+    "question": "What is the total quantity sold for each product?",
+    "expected_sql": "SELECT product, SUM(quantity) AS total_quantity FROM sales GROUP BY product ORDER BY total_quantity DESC;"
+  },
+  {
+    "question": "Show monthly revenue for completed sales.",
+    "expected_sql": "SELECT substr(order_date, 1, 7) AS month, ROUND(SUM(quantity * unit_price), 2) AS revenue FROM sales WHERE status = 'Completed' GROUP BY month ORDER BY month;"
+  },
+  {
+    "question": "Which region has the most completed orders?",
+    "expected_sql": "SELECT region, COUNT(*) AS completed_orders FROM sales WHERE status = 'Completed' GROUP BY region ORDER BY completed_orders DESC LIMIT 1;"
+  }
+]
