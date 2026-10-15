@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SweetViz — Stakeholder Data Summary</title>
+<style>
+:root{--ink:#182230;--muted:#526174;--line:#d9e2ec;--panel:#f5f8fc;--accent:#2463eb;}
+*{box-sizing:border-box}body{margin:0;background:#eef3f8;color:var(--ink);font:16px/1.6 Arial,Helvetica,sans-serif}
+header{background:#172b4d;color:white;padding:34px max(22px,calc((100% - 1040px)/2))}
+header h1{margin:0 0 6px;font-size:30px}header p{margin:0;color:#dbeafe}
+main{max-width:1040px;margin:24px auto;padding:0 18px 42px}
+.notice{background:#fff8e6;border:1px solid #efd48a;padding:14px 16px;border-radius:10px;color:#614b12;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:white;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 3px 10px #1522380b}
+.kpi{font-size:26px;font-weight:700;color:var(--accent)}.muted{color:var(--muted)}h2{margin-top:26px;font-size:22px}
+table{border-collapse:collapse;width:100%;background:white}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{background:var(--panel)}
+footer{color:var(--muted);font-size:13px;margin-top:24px}
+</style></head><body>
+<header><h1>SweetViz — Stakeholder Data Summary</h1><p>Student performance dataset · stakeholder-friendly overview</p></header><main><div class="notice"><strong>Report status:</strong> This HTML is a ready-to-view summary using the available saved statistics. The source CSV was not attached in this session, so the native AutoViz/SweetViz libraries were not run and this file is not an official library export.</div>
+<div class="grid">
+<div class="card"><div class="muted">Rows</div><div class="kpi">100,000</div><div class="muted">Recorded dataset size</div></div>
+<div class="card"><div class="muted">Columns</div><div class="kpi">18</div><div class="muted">Recorded dataset width</div></div>
+<div class="card"><div class="muted">Placed records</div><div class="kpi">68,475</div><div class="muted">68.5% of all rows</div></div>
+<div class="card"><div class="muted">Missing salary values</div><div class="kpi">31,525</div><div class="muted">In salary_package_lpa</div></div>
+</div>
+<h2>Key observations</h2>
+<div class="grid">
+<div class="card"><h3>Placement distribution</h3><p>68,475 records are marked placed and 31,525 are marked not placed. Validate field definitions before treating this as a business KPI.</p></div>
+<div class="card"><h3>Salary completeness</h3><p>31,525 salary-package values are missing. State the denominator and missing-value handling whenever reporting salary statistics.</p></div>
+<div class="card"><h3>Branch averages</h3><p>Saved average salaries range from about 17.28 to 17.35 LPA across branches, a relatively narrow range that needs validation before interpretation.</p></div>
+</div>
+<h2>Average salary by branch (LPA)</h2>
+<table><thead><tr><th>Branch</th><th>Average salary (LPA)</th></tr></thead><tbody>
+<tr><td>CE</td><td>17.348112</td></tr><tr><td>CSE</td><td>17.326434</td></tr><tr><td>Chemical</td><td>17.311982</td></tr><tr><td>EE</td><td>17.303424</td></tr><tr><td>ME</td><td>17.301258</td></tr><tr><td>ECE</td><td>17.291240</td></tr><tr><td>IT</td><td>17.277354</td></tr>
+</tbody></table>
+<h2>Average salary by college tier (LPA)</h2>
+<table><thead><tr><th>College tier</th><th>Average salary (LPA)</th></tr></thead><tbody><tr><td>Tier-1</td><td>19.341536</td></tr><tr><td>Tier-2</td><td>17.169251</td></tr></tbody></table>
+<h2>Suggested follow-up checks</h2><ul><li>Compare missing salary rates for placed and not-placed records.</li><li>Check salary distributions and outliers, not just averages.</li><li>Confirm branch and college-tier sample sizes before drawing conclusions.</li></ul>
+<h2>Business takeaways</h2><ol><li>Placement status is a useful headline measure, but it should be defined and segmented before comparing groups.</li><li>Salary missingness is large enough to affect conclusions and should be explicitly reported.</li><li>Tier-level salary differences appear larger than branch-level differences in the saved summary; verify distributions, sample sizes, and data quality.</li></ol>
+<footer>Prepared from previously recorded dataset summary. Verify against the original CSV before relying on these findings. This is a summary report, not a native AutoViz/SweetViz library export.</footer>
+</main></body></html>
