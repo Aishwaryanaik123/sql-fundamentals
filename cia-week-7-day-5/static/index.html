@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CIA Data Analyst Mode</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="eyebrow">CIA · DATA ANALYST MODE</p>
+      <h1>Ask questions about your CSV</h1>
+      <p class="sub">Upload a CSV, ask a question in plain English, and explore the result.</p>
+    </header>
+
+    <section class="panel">
+      <h2>1. Upload a dataset</h2>
+      <form id="upload-form">
+        <input id="csv-file" name="file" type="file" accept=".csv,text/csv" required>
+        <button type="submit">Upload CSV</button>
+      </form>
+      <p id="upload-status" class="status" aria-live="polite">No dataset uploaded yet.</p>
+      <div id="dataset-meta"></div>
+      <div class="table-wrap"><table id="preview-table"></table></div>
+    </section>
+
+    <section class="panel">
+      <h2>2. Ask a question</h2>
+      <form id="query-form">
+        <label for="question">Your question</label>
+        <textarea id="question" rows="3" placeholder="Example: What is the average salary?" required></textarea>
+        <div class="examples">
+          <button type="button" class="sample">How many rows are in this dataset?</button>
+          <button type="button" class="sample">Show me the average</button>
+          <button type="button" class="sample">Summarize the dataset</button>
+        </div>
+        <button type="submit">Analyze</button>
+      </form>
+      <p id="query-status" class="status" aria-live="polite"></p>
+      <div id="answer" class="answer"></div>
+      <p id="engine-note" class="muted"></p>
+      <div id="chart" class="chart"></div>
+    </section>
+
+    <footer>Demo starter project · Uploaded CSVs are stored temporarily on the server.</footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
