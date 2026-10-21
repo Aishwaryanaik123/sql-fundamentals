@@ -1,0 +1,3 @@
+# Worklog
+
+Built an end-to-end CSV analysis workflow that profiles the uploaded dataset, checks missing values and duplicate rows, summarizes numeric columns, and creates basic distribution charts. The workflow generates five data insights and prepares an approximately 200-word executive summary using Groq when an API key is supplied, with a built-in fallback so the workflow can still complete without one. It exports a PowerPoint presentation containing a title slide, five insight slides, and a recommendations slide. Supporting outputs include an EDA profile in JSON format, the executive summary, and the five key insights.
