@@ -1,0 +1,13 @@
+Region,Product,Sales,Profit,Units_Sold,Customer_Satisfaction
+North,A,12500,2100,120,4.1
+South,B,14800,2950,145,4.4
+East,A,9800,1350,98,3.8
+West,C,17200,3800,167,4.6
+North,B,13400,2400,132,4.2
+South,A,15900,3200,154,4.5
+East,C,11200,1600,109,3.9
+West,B,18100,4200,176,4.7
+North,C,14500,2700,140,4.3
+South,B,16600,3500,162,4.5
+East,A,10500,1450,103,3.7
+West,C,19300,4650,188,4.8
