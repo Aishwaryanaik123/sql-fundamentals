@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Production release demo application.">
+  <title>Production Release Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Production Release home"><span class="brand-mark">PR</span> Release Demo</a>
+    <span class="status"><span class="status-dot"></span> Demo environment</span>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">WEEK 8 · DAY 5</p>
+      <h1>Production release<br><span>readiness dashboard</span></h1>
+      <p class="hero-copy">A lightweight release checklist to review application readiness, deployment configuration, and final handoff details.</p>
+      <div class="hero-actions">
+        <button id="runCheck" class="button primary">Run client-side checks</button>
+        <a class="button secondary" href="#release-checklist">View checklist</a>
+      </div>
+      <p id="checkResult" class="result" role="status" aria-live="polite">Checks have not been run yet.</p>
+    </section>
+    <section class="metrics" aria-label="Release summary">
+      <article class="metric-card"><span class="metric-label">Release stage</span><strong>Pre-deployment</strong><small>Deploy after connecting your hosting account</small></article>
+      <article class="metric-card"><span class="metric-label">Client checks</span><strong id="checksCount">Not run</strong><small>Browser-side checks only</small></article>
+      <article class="metric-card"><span class="metric-label">Server status</span><strong>Unverified</strong><small>No live backend configured</small></article>
+    </section>
+    <section id="release-checklist" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">HANDOFF</p><h2>Release checklist</h2></div><span class="pill">Interactive</span></div>
+      <p class="muted">Mark items as you complete them. This checklist is stored only in the current page session and is not a deployment verification.</p>
+      <div class="checklist">
+        <label><input type="checkbox"> Confirm all required features against the source project</label>
+        <label><input type="checkbox"> Deploy to Vercel, Render, or Railway</label>
+        <label><input type="checkbox"> Open the production URL and test every route</label>
+        <label><input type="checkbox"> Inspect browser console and hosting logs for errors</label>
+        <label><input type="checkbox"> Add the real deployment URL to README</label>
+        <label><input type="checkbox"> Record the 3-minute demo and add its share link</label>
+        <label><input type="checkbox"> Open final pull request with summary and test evidence</label>
+      </div>
+    </section>
+    <section class="panel">
+      <p class="eyebrow">DEPLOYMENT NOTES</p>
+      <h2>What is verified here?</h2>
+      <div class="notice"><strong>Static demo only.</strong> This package has no backend or database connection. A successful browser-side check does not establish that a production service is deployed or that server errors are absent.</div>
+      <div class="two-col">
+        <div><h3>Included</h3><ul><li>Responsive single-page demo</li><li>Interactive client-side checks</li><li>Vercel and Render static-site configuration</li><li>README, demo narration, PR template</li></ul></div>
+        <div><h3>Still requires account access</h3><ul><li>Publishing to a hosting provider</li><li>Real production URL and server-log review</li><li>Recording/uploading a video</li><li>Creating a pull request on GitHub</li></ul></div>
+      </div>
+    </section>
+    <footer>Production Release · Week 8 Day 5 <span>Static demo package</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
