@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A responsive production-ready demo dashboard for release verification.">
+  <title>Release Ready | Demo Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Release Ready home"><span class="logo">R</span> Release Ready</a>
+    <span class="status"><span class="dot"></span> Demo environment</span>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">PRODUCTION RELEASE CHECK</p>
+      <h1>Everything in one place.</h1>
+      <p class="sub">A small responsive dashboard to demonstrate core UI behavior, validation, filtering, and error-free interactions.</p>
+      <div class="hero-actions">
+        <button id="refreshBtn" class="button primary">Refresh status</button>
+        <a class="button secondary" href="#features">Explore features</a>
+      </div>
+      <p id="statusMessage" class="status-message" role="status">All demo services are responding normally.</p>
+    </section>
+    <section class="metrics" aria-label="Demo metrics">
+      <article class="metric"><span class="metric-label">Service status</span><strong class="good">Operational</strong><small>Local demo status</small></article>
+      <article class="metric"><span class="metric-label">Features</span><strong>4</strong><small>Interactive modules</small></article>
+      <article class="metric"><span class="metric-label">Open issues</span><strong id="issueCount">0</strong><small>Demo issue tracker</small></article>
+    </section>
+    <section id="features" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">FEATURES</p><h2>Quick issue tracker</h2></div><span class="pill">Interactive</span></div>
+      <form id="issueForm" class="issue-form">
+        <label for="issueInput">Add a test item</label>
+        <div class="input-row"><input id="issueInput" maxlength="90" placeholder="e.g. Verify navigation on mobile" required><button class="button primary" type="submit">Add item</button></div>
+        <p class="hint">Enter a short item to test form validation and dynamic updates.</p>
+      </form>
+      <div class="toolbar"><label for="filterSelect">Show</label><select id="filterSelect"><option value="all">All items</option><option value="open">Open</option><option value="done">Completed</option></select><span id="itemCount" class="muted">0 items</span></div>
+      <ul id="issueList" class="issue-list"><li class="empty">No items yet. Add one above to test the feature.</li></ul>
+    </section>
+    <section class="panel" aria-label="Release checklist">
+      <p class="eyebrow">RELEASE CHECKLIST</p><h2>Before publishing</h2>
+      <div class="checklist">
+        <label><input type="checkbox"> Homepage loads</label>
+        <label><input type="checkbox"> Interactive form works</label>
+        <label><input type="checkbox"> Responsive layout checked</label>
+        <label><input type="checkbox"> Deployment URL tested</label>
+      </div>
+      <p class="hint">Checklist selections are temporary and reset when the page reloads.</p>
+    </section>
+    <footer><span>Release Ready demo</span><span>Static HTML · CSS · JavaScript</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
