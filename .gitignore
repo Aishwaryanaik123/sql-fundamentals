@@ -1,0 +1,8 @@
+mlruns/
+*.db
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.idea/
