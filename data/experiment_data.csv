@@ -1,0 +1,4 @@
+experiment,model,parameter,example_value
+classification,LogisticRegression,max_iter,2000
+classification,DecisionTree,max_depth,4
+classification,RandomForest,n_estimators,100

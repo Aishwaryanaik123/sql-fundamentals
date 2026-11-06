@@ -1,0 +1,4 @@
+run_name,accuracy,precision,recall,f1_score
+LogisticRegression,,,,
+DecisionTree,,,,
+RandomForest,,,,
