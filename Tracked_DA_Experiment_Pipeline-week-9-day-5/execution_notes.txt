@@ -1,0 +1,18 @@
+WEEK 9 DAY 5 – TRACKED DA EXPERIMENT PIPELINE
+
+This package is ready to review without running commands.
+
+Optional execution:
+1. Create and activate a Python virtual environment.
+2. Install requirements.txt.
+3. Run: python src/train_experiment.py
+4. Run: python src/compare_runs.py
+5. Run: mlflow ui
+6. Open http://127.0.0.1:5000
+
+Expected behavior:
+- Two MLflow runs are created in the experiment "tracked-da-experiment-pipeline".
+- Each run logs parameters, metrics, tags, model and evaluation artifacts.
+- The comparison script ranks the available runs by F1 score.
+
+Note: No live training or MLflow run was executed while preparing this downloadable package. The supplied offline report is explicitly illustrative.

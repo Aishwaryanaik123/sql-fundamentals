@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tracked DA Experiment Pipeline – Week 9 Day 5</title>
+<style>
+:root{font-family:Arial,sans-serif;color:#1f2937;background:#f5f7fb}body{margin:0;padding:32px}
+main{max-width:1050px;margin:auto}.eyebrow{color:#52627a;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+h1{margin:8px 0}.note{background:#fff4d6;border:1px solid #ead28b;padding:14px;border-radius:10px;line-height:1.5}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:20px 0}
+.card,section{background:white;border:1px solid #e3e8f0;border-radius:12px;padding:18px}
+.card strong{display:block;font-size:27px;margin-top:8px}.muted{color:#64748b;font-size:13px}
+table{width:100%;border-collapse:collapse;background:white}th,td{padding:13px;text-align:left;border-bottom:1px solid #e8edf3}th{background:#f0f4f9}
+.bar{height:10px;background:#e5eaf2;border-radius:8px;overflow:hidden}.bar span{display:block;height:100%;background:#4776c5}
+li{margin:8px 0}footer{margin-top:24px;color:#64748b;font-size:12px}
+</style></head><body><main>
+<div class="eyebrow">Data Analyst Intern · 3M · Week 9 Day 5</div>
+<h1>Tracked DA Experiment Pipeline</h1>
+<p class="muted">Experiment tracking, model evaluation, and run comparison</p>
+<div class="note"><b>Demonstration data:</b> The table below contains illustrative sample metrics, not results from an executed MLflow run. The included Python pipeline creates real runs when executed with the listed dependencies.</div>
+<div class="cards">
+<div class="card"><span class="muted">Experiment</span><strong>2 models</strong><span class="muted">Logistic Regression + Random Forest</span></div>
+<div class="card"><span class="muted">Tracking platform</span><strong>MLflow</strong><span class="muted">Parameters · metrics · tags · artifacts</span></div>
+<div class="card"><span class="muted">Example leading F1</span><strong>0.82</strong><span class="muted">Random Forest · illustrative</span></div>
+</div>
+<section><h2>Illustrative model comparison</h2><table><thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>ROC-AUC</th></tr></thead>
+<tbody><tr><td>Logistic Regression</td><td>0.82</td><td>0.79</td><td>0.76</td><td>0.77</td><td>0.86</td></tr>
+<tr><td><b>Random Forest</b></td><td><b>0.86</b></td><td><b>0.84</b></td><td><b>0.81</b></td><td><b>0.82</b></td><td><b>0.90</b></td></tr></tbody></table></section>
+<section style="margin-top:16px"><h2>Tracking workflow</h2><ol><li>Load and validate the synthetic customer activity dataset.</li><li>Split the data with a fixed random seed.</li><li>Train two baseline classifiers.</li><li>Log parameters, evaluation metrics, tags, models, and artifacts to MLflow.</li><li>Compare runs and rank by F1 score.</li></ol></section>
+<section style="margin-top:16px"><h2>Example F1 comparison</h2><p>Logistic Regression · 0.77</p><div class="bar"><span style="width:77%"></span></div><p>Random Forest · 0.82</p><div class="bar"><span style="width:82%"></span></div></section>
+<footer>Offline sample dashboard. Use real, approved data and validate on a representative holdout set before production decisions.</footer>
+</main></body></html>
