@@ -1,0 +1,3 @@
+Data Analyst Intern 3M — Week 10 Day 3
+Project: Anomaly Detection — Isolation Forest + Statistical Methods
+All supplied data is synthetic and for educational demonstration only.

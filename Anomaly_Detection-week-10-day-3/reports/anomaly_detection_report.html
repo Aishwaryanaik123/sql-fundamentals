@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anomaly Detection Report</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:1000px;margin:36px auto;padding:0 18px;color:#202733;line-height:1.55}
+h1,h2{color:#17365d} .note{background:#fff4d6;padding:12px;border-left:4px solid #d99b00}
+.metrics{border-collapse:collapse;width:100%;margin:18px 0}.metrics td,.metrics th{padding:10px;border-bottom:1px solid #ddd;text-align:left}
+img{max-width:100%;height:auto;margin:12px 0 24px} code{background:#f2f2f2;padding:2px 5px}
+</style></head><body>
+<h1>Anomaly Detection: Isolation Forest + Statistical Methods</h1>
+<p><b>Dataset:</b> 1,200 synthetic transaction records; 36 deliberately injected unusual records.</p>
+<div class="note"><b>Important:</b> This is a controlled synthetic demonstration, not real customer or Indian market data. The injected anomalies are intentionally pronounced, so the high scores below should not be interpreted as expected real-world performance.</div>
+<h2>Methods</h2>
+<ul><li><b>Z-score:</b> flags a record when any feature is at least 3 standard deviations from its mean.</li>
+<li><b>IQR:</b> flags values outside Q1 − 1.5×IQR or Q3 + 1.5×IQR on any feature.</li>
+<li><b>Isolation Forest:</b> unsupervised tree-based method that isolates unusual observations; contamination set to 3%.</li>
+<li><b>Combined vote:</b> flags records identified by at least two of the three methods.</li></ul>
+<h2>Evaluation summary</h2>
+<p>Injected labels were excluded from model features and used only to evaluate the methods.</p>
+<table class="dataframe metrics">
+  <thead>
+    <tr style="text-align: right;">
+      <th>method</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1_score</th>
+      <th>flagged_records</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Z-score</td>
+      <td>1.0000</td>
+      <td>1.0</td>
+      <td>1.0000</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>IQR</td>
+      <td>0.3711</td>
+      <td>1.0</td>
+      <td>0.5414</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <td>Isolation Forest</td>
+      <td>1.0000</td>
+      <td>1.0</td>
+      <td>1.0000</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>Combined vote (2 of 3)</td>
+      <td>1.0000</td>
+      <td>1.0</td>
+      <td>1.0000</td>
+      <td>36</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Flagged records</h2><img src="flagged_counts.png" alt="Bar chart of records flagged">
+<h2>Feature view</h2><img src="transaction_anomaly_scatter.png" alt="Transaction amount and distance scatter plot">
+<h2>Conclusion</h2>
+<p>In this deliberately separated synthetic dataset, Z-score and Isolation Forest recovered all injected anomalies. IQR also recovered them but flagged more normal observations. In real data, thresholds and contamination must be tuned, features should be reviewed with domain experts, and alerts should be investigated rather than treated as proof of fraud.</p>
+</body></html>

@@ -1,0 +1,31 @@
+WEEK 10 DAY 3 — EXECUTION NOTES
+Task: Anomaly Detection — Isolation Forest + Statistical Methods
+
+Dataset rows: 1200
+Injected demonstration anomalies: 36
+Features: transaction_amount, transaction_count_24h, account_age_days, transaction_hour, distance_from_usual_km
+
+Computed comparison:
+                method  precision  recall  f1_score  flagged_records
+               Z-score     1.0000     1.0    1.0000               36
+                   IQR     0.3711     1.0    0.5414               97
+      Isolation Forest     1.0000     1.0    1.0000               36
+Combined vote (2 of 3)     1.0000     1.0    1.0000               36
+
+Outputs generated:
+- reports/anomaly_detection_results.csv
+- reports/method_comparison.csv
+- reports/anomaly_detection_report.html
+- reports/flagged_counts.png
+- reports/transaction_anomaly_scatter.png
+
+Reproducibility:
+- Fixed random seed: 42
+- Isolation Forest estimators: 200
+- Isolation Forest contamination: 0.03
+- Z-score threshold: 3
+- IQR multiplier: 1.5
+- Combined rule: at least 2 of 3 methods flag a row
+
+Caveat:
+The supplied dataset is synthetic and anomalies are deliberately pronounced. The high metrics are demonstration results, not a claim about real-world fraud or anomaly detection accuracy.

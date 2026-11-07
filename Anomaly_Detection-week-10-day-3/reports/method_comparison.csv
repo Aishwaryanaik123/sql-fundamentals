@@ -1,0 +1,5 @@
+method,precision,recall,f1_score,flagged_records
+Z-score,1.0,1.0,1.0,36
+IQR,0.3711,1.0,0.5414,97
+Isolation Forest,1.0,1.0,1.0,36
+Combined vote (2 of 3),1.0,1.0,1.0,36
