@@ -1,0 +1,22 @@
+WEEK 10 DAY 2 – EXECUTION NOTES
+
+Project: Prophet Forecasting on Indian Market Data
+
+Offline review:
+1. Extract the ZIP.
+2. Open reports/forecast_preview.html in Chrome or Edge.
+3. No installation is needed to view the preview.
+
+Actual model execution (optional):
+1. Use Python 3.10 or newer.
+2. Create and activate a virtual environment.
+3. Install requirements.txt.
+4. Run: python src/prophet_forecasting.py
+
+Expected generated files:
+- reports/model_evaluation_metrics.csv
+- reports/prophet_12_month_forecast.csv
+- reports/prophet_forecast.png
+- reports/prophet_components.png
+
+The dataset is synthetic demonstration data. The included preview is illustrative and is not the result of a live Prophet model fit.
