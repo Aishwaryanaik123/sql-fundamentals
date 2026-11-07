@@ -1,0 +1,51 @@
+WEEK 9 DAY 3 — A/B TEST TRACKING WITH MLFLOW
+================================================
+
+Objective
+Track an A/B experiment's configuration, performance metrics, and output
+artifacts using MLflow.
+
+Dataset
+- File: ab_test_data.csv
+- 2,000 synthetic user observations (1,000 per variant).
+- Variant A is the control; Variant B is the treatment.
+- converted: 1 means conversion; 0 means no conversion.
+- revenue: simulated revenue for converted users; zero otherwise.
+
+Process followed
+1. Prepared a reproducible synthetic dataset with two randomized variants.
+2. Calculated conversion counts and conversion rates for A and B.
+3. Calculated absolute and relative conversion lift.
+4. Performed a two-sided, pooled two-proportion z-test at alpha = 0.05.
+5. Calculated average revenue per user for both variants.
+6. Saved the metrics to analysis_results.csv and the interpretation to
+   experiment_summary.txt.
+7. Prepared mlflow_tracking.py to log experiment parameters, metrics, and
+   artifacts to an MLflow experiment named
+   week-9-day-3-ab-test-tracking.
+
+Tracking details
+- Experiment: week-9-day-3-ab-test-tracking
+- Run: landing-page-variant-comparison
+- Parameters: variant names, sample size, significance level, dataset.
+- Metrics: sample sizes, conversions, conversion rates, lift, z statistic,
+  p-value, average revenue per user, significance indicator.
+- Artifacts: dataset, analysis_results.csv, experiment_summary.txt.
+
+Execution note
+The analysis uses only Python's standard library and its generated outputs
+are included. MLflow is not installed or executed in this prepared folder,
+because no software installation was requested. mlflow_tracking.py contains
+the MLflow API integration and will create a live run when executed in an
+environment where MLflow is already available. No live MLflow run is claimed.
+
+Files
+- ab_test_data.csv       Synthetic experiment dataset
+- ab_test_analysis.py    Reproducible statistical analysis
+- analysis_results.csv   Computed experiment metrics
+- experiment_summary.txt Human-readable result and conclusion
+- mlflow_tracking.py     MLflow parameter, metric, and artifact logging
+- process_documentation.txt Task process and tracking documentation
+
+Suggested commit message
+Add Week 9 Day 3 A/B test MLflow tracking

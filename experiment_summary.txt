@@ -1,0 +1,18 @@
+A/B TEST SUMMARY
+================
+Experiment: Landing page conversion test
+Control: Variant A | Treatment: Variant B
+Users: A=1000, B=1000
+Conversions: A=120, B=150
+Conversion rate: A=12.00%, B=15.00%
+Absolute lift: 3.00%
+Relative lift: 25.00%
+Two-proportion z statistic: 1.9630
+Two-sided p-value: 0.049640
+Decision (alpha=0.05): Variant B shows a statistically significant improvement at the 5% level.
+
+Average revenue per user:
+A=$6.46 | B=$9.49
+
+Caution: This is synthetic practice data. Statistical significance does not
+prove causality if randomization, instrumentation, or experiment design is flawed.

@@ -1,0 +1,14 @@
+metric,value
+users_A,1000
+users_B,1000
+conversions_A,120
+conversions_B,150
+conversion_rate_A,0.12
+conversion_rate_B,0.15
+absolute_lift,0.03
+relative_lift_percent,25.0
+z_statistic,1.963049807622355
+p_value_two_sided,0.04964038686536876
+average_revenue_per_user_A,6.4613000000000005
+average_revenue_per_user_B,9.48953
+statistically_significant_at_5_percent,True
