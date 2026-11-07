@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Week 9 Day 4 | Model Version Comparison</title>
+<style>
+body{margin:0;background:#f3f5fa;color:#182230;font:15px Arial,sans-serif}main{max-width:1050px;margin:35px auto;padding:0 20px}
+h1{margin:0 0 6px;font-size:28px}.muted{color:#667085}.tag{display:inline-block;background:#fff0d5;color:#805000;padding:8px 12px;border-radius:20px;font-size:12px;font-weight:bold}
+.notice,.panel,.card{background:white;border:1px solid #e4e8ef;border-radius:13px;padding:18px;margin:16px 0}
+.notice{background:#fff8e8;border-color:#f1dfb6;color:#704d0b}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.k{font-size:12px;color:#667085;text-transform:uppercase}.v{font-size:27px;font-weight:bold;margin:6px 0}.hint{font-size:12px;color:#667085}
+h2{font-size:18px;margin:0 0 14px}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:12px 9px;border-bottom:1px solid #e7eaf0}th{font-size:12px;color:#667085;text-transform:uppercase}
+.best{background:#effaf3}.best td:first-child{font-weight:bold;color:#087443}.barrow{display:grid;grid-template-columns:65px 1fr 55px;gap:12px;align-items:center;margin:14px 0}
+.track{height:13px;background:#edf0f5;border-radius:20px;overflow:hidden}.bar{height:100%;background:#3157c8}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:14px}.foot{font-size:12px;color:#667085}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}.columns{grid-template-columns:1fr}table{font-size:12px}td,th{padding:8px 4px}}
+</style></head><body><main>
+<h1>Model Version Comparison</h1><p class="muted">MLflow Dashboard · Data Analyst Intern 3M · Week 9 Day 4</p><span class="tag">DEMONSTRATION DATA</span>
+<div class="notice"><b>Data note:</b> Illustrative sample metrics only. This is an offline HTML dashboard, not a live MLflow UI. No models were trained and no live MLflow run was executed.</div>
+<div class="cards">
+<div class="card"><div class="k">Top version</div><div class="v">v1.2</div><div class="hint">Highest F1 score</div></div>
+<div class="card"><div class="k">Best accuracy</div><div class="v">87.3%</div><div class="hint">Version v1.2</div></div>
+<div class="card"><div class="k">Best F1 score</div><div class="v">0.855</div><div class="hint">Version v1.2</div></div>
+<div class="card"><div class="k">Best ROC-AUC</div><div class="v">0.914</div><div class="hint">Version v1.2</div></div></div>
+<section class="panel"><h2>Version metrics</h2><div style="overflow-x:auto"><table><thead><tr><th>Version</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>ROC-AUC</th><th>Time</th></tr></thead>
+<tbody><tr><td>v1.0</td><td>84.2%</td><td>.831</td><td>.806</td><td>.818</td><td>.879</td><td>18.4s</td></tr>
+<tr><td>v1.1</td><td>86.1%</td><td>.849</td><td>.832</td><td>.840</td><td>.901</td><td>20.1s</td></tr>
+<tr class="best"><td>v1.2 ★</td><td>87.3%</td><td>.866</td><td>.845</td><td>.855</td><td>.914</td><td>22.7s</td></tr></tbody></table></div></section>
+<section class="panel"><h2>Accuracy comparison</h2>
+<div class="barrow"><b>v1.0</b><div class="track"><div class="bar" style="width:84.2%"></div></div><b>84.2%</b></div>
+<div class="barrow"><b>v1.1</b><div class="track"><div class="bar" style="width:86.1%"></div></div><b>86.1%</b></div>
+<div class="barrow"><b>v1.2</b><div class="track"><div class="bar" style="width:87.3%"></div></div><b>87.3%</b></div></section>
+<div class="columns"><section class="panel"><h2>Key observations</h2><ul><li>v1.2 leads on all listed predictive metrics.</li><li>Accuracy improves by 3.1 percentage points.</li><li>Training time increases by 4.3 seconds.</li></ul></section>
+<section class="panel"><h2>Recommendation</h2><p>Select <b>v1.2</b> for further validation because it has the strongest reported metrics. Confirm on a real held-out dataset before deployment.</p></section></div>
+<p class="foot">Prepared for Week 9 Day 4 · Illustrative values for dashboard practice only.</p></main></body></html>

@@ -1,0 +1,10 @@
+MLFLOW DASHBOARD – MODEL VERSION COMPARISON
+================================================
+v1.0: accuracy=0.842, precision=0.831, recall=0.806, f1_score=0.818, roc_auc=0.879, training_time=18.4s
+v1.1: accuracy=0.861, precision=0.849, recall=0.832, f1_score=0.840, roc_auc=0.901, training_time=20.1s
+v1.2: accuracy=0.873, precision=0.866, recall=0.845, f1_score=0.855, roc_auc=0.914, training_time=22.7s
+------------------------------------------------
+Best version by F1 score: v1.2
+Accuracy change: 3.1 percentage points
+Training-time change: 4.3 seconds
+NOTE: Demonstration values only; not measured model results.

@@ -1,0 +1,4 @@
+model_version,accuracy,precision,recall,f1_score,roc_auc,training_time_seconds,notes
+v1.0,0.842,0.831,0.806,0.818,0.879,18.4,Baseline version
+v1.1,0.861,0.849,0.832,0.840,0.901,20.1,Updated feature configuration
+v1.2,0.873,0.866,0.845,0.855,0.914,22.7,Latest candidate version
