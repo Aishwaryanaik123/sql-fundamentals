@@ -1,0 +1,20 @@
+WEEK 10 DAY 4 — EXECUTION NOTES
+Task: Forecasting Dashboard — Plotly + Streamlit
+
+Dataset: 84 monthly observations (2019-01-01 to 2025-12-01)
+Forecast horizon in supplied output: 12 months
+Holdout evaluation: last 12 months
+MAE: 5.0312
+RMSE: 6.0500
+
+Forecast method: linear trend + calendar-month indicator variables.
+Outputs:
+- reports/forecast_dashboard_preview.html
+- reports/seasonality_preview.html
+- reports/forecast_output.csv
+- reports/evaluation_metrics.csv
+- src/streamlit_app.py
+
+The Plotly HTML preview and forecast calculations were generated. Streamlit is not installed in the preparation environment, so the Streamlit app source is included but was not launched here. Install requirements and run the documented command only if a live Streamlit server is required.
+
+Caveat: Synthetic demonstration dataset, not official Indian market data. Residual range is approximate, not a calibrated prediction interval.

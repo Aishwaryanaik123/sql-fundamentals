@@ -1,0 +1,4 @@
+Data Analyst Intern 3M — Week 10 Day 4
+Project: Forecasting Dashboard — Plotly + Streamlit
+Dataset is synthetic and provided for educational demonstration.
+Open reports/forecast_dashboard_preview.html for the ready-to-view interactive dashboard.
