@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Week 10 Day 1 – Time Series Analysis</title>
+<style>
+body{margin:0;padding:30px;background:#f4f7fb;color:#1f2937;font-family:Arial,sans-serif}
+main{max-width:1000px;margin:auto}.muted{color:#64748b}.note{background:#fff3d4;border:1px solid #e7d49a;padding:14px;border-radius:10px;line-height:1.5}
+section,.metric{background:white;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin-top:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.metric b{font-size:22px;display:block;margin-top:8px}svg{width:100%;height:auto}li{margin:9px 0}
+</style></head><body><main>
+<p class="muted">DATA ANALYST INTERN · 3M · WEEK 10 DAY 1</p>
+<h1>Time Series Analysis</h1><p class="muted">Trends · Seasonality · ARIMA Forecasting</p>
+<div class="note"><b>Demonstration data:</b> This report uses a synthetic monthly dataset. The chart below illustrates the data pattern. No ARIMA model was fitted during package preparation; run the included script to generate actual forecast outputs.</div>
+<div class="grid">
+<div class="metric">Time span<b>60 months</b><span class="muted">Jan 2021 – Dec 2025</span></div>
+<div class="metric">Observation frequency<b>Monthly</b><span class="muted">12 observations per seasonal cycle</span></div>
+<div class="metric">Baseline model<b>ARIMA(1,1,1)</b><span class="muted">Included as a learning baseline</span></div>
+</div>
+<section><h2>Illustrative monthly series</h2><svg viewBox="0 0 620 210" role="img" aria-label="Synthetic monthly series with upward trend and annual seasonality">
+<line x1="40" y1="20" x2="40" y2="175" stroke="#94a3b8"/><line x1="40" y1="175" x2="590" y2="175" stroke="#94a3b8"/>
+<polyline points="40.0,140.1 49.0,126.8 58.0,119.4 67.0,126.7 76.0,126.7 85.0,136.2 94.0,146.3 103.0,160.0 112.0,164.1 121.0,157.7 130.0,145.9 139.0,140.0 148.0,125.1 157.0,117.0 166.0,105.5 175.0,104.3 184.0,115.5 193.0,117.8 202.0,137.7 211.0,137.1 220.0,139.6 229.0,145.1 238.0,131.2 247.0,121.5 256.0,104.9 265.0,103.0 274.0,93.7 283.0,89.8 292.0,97.8 301.0,110.2 310.0,122.3 319.0,120.5 328.0,128.8 337.0,120.6 346.0,122.2 355.0,103.5 364.0,91.3 373.0,80.0 382.0,84.2 391.0,80.3 400.0,89.0 409.0,90.1 418.0,104.2 427.0,105.1 436.0,114.7 445.0,107.9 454.0,99.1 463.0,94.6 472.0,79.0 481.0,64.4 490.0,63.5 499.0,65.2 508.0,71.5 517.0,74.6 526.0,90.8 535.0,93.8 544.0,97.5 553.0,95.1 562.0,92.0 571.0,74.8" fill="none" stroke="#356fc0" stroke-width="2.5"/>
+<text x="40" y="198" font-size="11" fill="#64748b">Jan 2021</text><text x="535" y="198" font-size="11" fill="#64748b">Dec 2025</text>
+</svg><p class="muted">Synthetic values show a gradual upward trend and repeating within-year variation.</p></section>
+<section><h2>Analysis workflow</h2><ol><li>Load monthly observations and set a regular monthly date index.</li><li>Inspect trend using the original series and 12-month rolling mean.</li><li>Apply additive decomposition with a 12-month seasonal period.</li><li>Fit ARIMA(1,1,1) on the training data.</li><li>Evaluate the final 12 months using MAE and RMSE.</li><li>Refit on all observations and forecast the next 12 months.</li></ol></section>
+<section><h2>Interpretation and limitations</h2><ul><li>The upward trend is built into the synthetic demonstration data.</li><li>The annual seasonal component repeats on a 12-month cycle.</li><li>ARIMA(1,1,1) is a baseline, not a tuned or proven optimal model.</li><li>Use residual diagnostics and time-aware validation before relying on forecasts.</li></ul></section>
+<p class="muted">Open this file offline in Chrome or Edge. No installation is needed to view this report.</p>
+</main></body></html>
