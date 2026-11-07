@@ -1,42 +1,51 @@
-﻿# Week 9 Day 4 – MLflow Dashboard: Compare Model Versions
+# Week 9 Day 5 – Tracked DA Experiment Pipeline
 
 ## Objective
-Compare three model versions using common evaluation metrics and present the comparison in a dashboard.
+Build a reproducible data-analysis experiment pipeline that loads a dataset, prepares features, trains two baseline classification models, evaluates them with common metrics, and tracks parameters, metrics, tags, and artifacts with MLflow.
 
-## Important data note
-This package uses illustrative demonstration metrics. No model was trained and no live MLflow run was executed. `dashboard.html` is a standalone offline report, not the live MLflow UI.
+## What is included
+- `data/customer_activity.csv` – deterministic synthetic demonstration dataset (300 rows).
+- `src/train_experiment.py` – end-to-end experiment pipeline with explicit MLflow logging.
+- `src/compare_runs.py` – retrieves and compares completed MLflow runs.
+- `reports/experiment_comparison.html` – offline sample comparison dashboard.
+- `reports/sample_run_summary.md` – sample findings and interpretation.
+- `experiment_process.md` – workflow, tracking design, and reproducibility notes.
+- `requirements.txt` – dependencies for running the pipeline.
+- `execution_notes.txt` – expected commands and output guidance.
 
-## Results
-
-| Version | Accuracy | Precision | Recall | F1 score | ROC-AUC | Training time |
-|---|---:|---:|---:|---:|---:|---:|
-| v1.0 | 0.842 | 0.831 | 0.806 | 0.818 | 0.879 | 18.4 s |
-| v1.1 | 0.861 | 0.849 | 0.832 | 0.840 | 0.901 | 20.1 s |
-| v1.2 | 0.873 | 0.866 | 0.845 | 0.855 | 0.914 | 22.7 s |
-
-## Findings
-- v1.2 leads on all listed predictive metrics.
-- Accuracy improves by 3.1 percentage points from v1.0 to v1.2.
-- Training time increases by 4.3 seconds.
-- v1.2 is the preferred candidate for further validation.
-
-## Files
-- `dashboard.html` – standalone comparison dashboard; open in a browser.
-- `model_versions.csv` – comparison data.
-- `model_comparison.py` – standard-library comparison script.
-- `mlflow_tracking.py` – optional MLflow logging example; requires MLflow.
-- `experiment_process.md` – workflow and interpretation.
-- `experiment_summary.txt` – concise results.
-- `execution_output.txt` – sample script output.
-- `requirements_optional.txt` – optional dependency note.
+## Important data and execution note
+The included dataset is synthetic and generated for demonstration. The sample report contains illustrative example metrics so the folder can be reviewed without installing or running anything. No live MLflow experiment was executed when this package was prepared. Running the scripts locally will create real runs from the included synthetic dataset.
 
 ## View without installation
-Open `dashboard.html` in Chrome or Edge. No installation is needed to view the dashboard.
+Open `reports/experiment_comparison.html` in Chrome or Edge to view the offline sample comparison. No installation is required to view the report.
 
-## Optional script
-`python model_comparison.py` uses only Python's standard library.
+## Run the pipeline (optional)
+Use Python 3.10 or newer.
 
-`mlflow_tracking.py` is optional and requires MLflow to be installed separately.
+```bash
+python -m venv .venv
+# Windows:
+.venv\Scripts\activate
+# macOS/Linux:
+source .venv/bin/activate
+
+pip install -r requirements.txt
+python src/train_experiment.py
+python src/compare_runs.py
+mlflow ui
+```
+
+Then open `http://127.0.0.1:5000` to inspect the MLflow experiment UI.
+
+## What gets tracked
+Each model run logs:
+- Parameters: model type, test size, random seed, and model-specific settings.
+- Metrics: accuracy, precision, recall, F1 score, ROC-AUC, and training duration.
+- Tags: experiment purpose, dataset name, and pipeline version.
+- Artifacts: evaluation summary, classification report, confusion matrix image, and a copy of the dataset.
+
+## Expected outputs
+MLflow stores experiment metadata and artifacts in the local `mlruns/` directory by default. `compare_runs.py` prints a ranked comparison table and selects the highest-F1 run.
 
 ## Conclusion
-The illustrative comparison selects v1.2 for further validation. Confirm results on a real held-out dataset before making a production decision.
+This project demonstrates an auditable, repeatable DA experiment workflow. Use real, approved data and validate results on a representative holdout set before making business or production decisions.
