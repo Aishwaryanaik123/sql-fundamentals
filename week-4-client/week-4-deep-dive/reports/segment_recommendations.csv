@@ -1,6 +1,0 @@
-Cluster,Segment,Customers,Avg_Orders,Avg_Revenue,Avg_Recency_Days,Churn_Rate_Pct,Recommended_Action
-1,"Low-frequency, high-ticket / churn-risk",36,3.11,25513.14,235.31,16.67,Personalized re-engagement; validate high-ticket order pattern and churn definition.
-2,"High-frequency, short-tenure anomaly",39,14.28,25127.74,236.59,0.0,Audit purchase-date semantics and order aggregation before any targeting.
-3,"High-value, recently active",34,10.06,32762.32,29.18,0.0,"Protect with loyalty benefits, relevant cross-sell, and service-quality monitoring."
-4,"Frequent, low-spend",24,14.21,4136.12,205.08,0.0,Test bundles and basket-building offers with margin safeguards.
-5,"Established, mid-value / less recent",67,14.25,28074.33,200.16,0.0,Run a measured win-back campaign and track response.

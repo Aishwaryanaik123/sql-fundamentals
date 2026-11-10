@@ -1,1 +1,0 @@
-Tools used: Python, Pandas, NumPy, scikit-learn (K-Means, StandardScaler, silhouette score), Matplotlib, ReportLab, CSV, VS Code (optional), Git/GitHub (for version control).
