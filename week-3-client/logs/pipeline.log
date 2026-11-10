@@ -1,0 +1,5 @@
+2026-11-10 14:03:06,700 | INFO | Pipeline started
+2026-11-10 14:03:06,712 | INFO | real_estate loaded: 600 rows, 15 columns
+2026-11-10 14:03:06,717 | INFO | customers loaded: 200 rows, 10 columns
+2026-11-10 14:03:06,720 | INFO | products loaded: 50 rows, 7 columns
+2026-11-10 14:03:06,750 | INFO | Pipeline completed successfully

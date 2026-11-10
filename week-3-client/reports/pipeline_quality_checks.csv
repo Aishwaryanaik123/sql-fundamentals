@@ -1,0 +1,4 @@
+table,rows,columns,missing_cells,duplicate_rows,duplicate_key_values,candidate_key
+real_estate,600,15,0,0,0,listing_id
+customers,200,10,0,0,0,Customer_ID
+products,50,7,0,0,0,Product_ID

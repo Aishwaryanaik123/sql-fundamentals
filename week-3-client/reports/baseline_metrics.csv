@@ -1,0 +1,16 @@
+metric_group,metric_name,metric_value
+real_estate_overall,total_listings,600.0
+real_estate_overall,sold_listings,209.0
+real_estate_overall,sold_rate_pct,34.83
+real_estate_overall,median_price_lakh,172.595
+real_estate_overall,avg_days_on_market,183.7
+customer_overall,total_customers,200.0
+customer_overall,churned_customers,6.0
+customer_overall,churn_rate_pct,3.0
+customer_overall,total_revenue,4992621.0
+customer_overall,avg_revenue_per_customer,24963.1
+customer_overall,avg_orders_per_customer,11.54
+product_overall,total_products,50.0
+product_overall,total_stock_units,13857.0
+product_overall,products_below_monthly_sales,5.0
+product_overall,avg_gross_margin_pct,58.62
