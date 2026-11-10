@@ -1,0 +1,127 @@
+{
+  "city": [
+    {
+      "city": "Pune",
+      "listings": 79,
+      "sold": 34,
+      "sold_rate_pct": 43.04,
+      "median_price_lakh": 172.75
+    },
+    {
+      "city": "Hyderabad",
+      "listings": 72,
+      "sold": 28,
+      "sold_rate_pct": 38.89,
+      "median_price_lakh": 186.82
+    },
+    {
+      "city": "Bengaluru",
+      "listings": 73,
+      "sold": 28,
+      "sold_rate_pct": 38.36,
+      "median_price_lakh": 221.27
+    },
+    {
+      "city": "Delhi NCR",
+      "listings": 71,
+      "sold": 25,
+      "sold_rate_pct": 35.21,
+      "median_price_lakh": 167.64
+    },
+    {
+      "city": "Mumbai",
+      "listings": 76,
+      "sold": 26,
+      "sold_rate_pct": 34.21,
+      "median_price_lakh": 160.67
+    },
+    {
+      "city": "Ahmedabad",
+      "listings": 69,
+      "sold": 23,
+      "sold_rate_pct": 33.33,
+      "median_price_lakh": 137.38
+    },
+    {
+      "city": "Kolkata",
+      "listings": 67,
+      "sold": 21,
+      "sold_rate_pct": 31.34,
+      "median_price_lakh": 143.13
+    },
+    {
+      "city": "Chennai",
+      "listings": 93,
+      "sold": 24,
+      "sold_rate_pct": 25.81,
+      "median_price_lakh": 188.22
+    }
+  ],
+  "channel": [
+    {
+      "name": "App",
+      "customers": 51,
+      "revenue": 1468234,
+      "avg_revenue": 28788.9,
+      "churn_rate_pct": 3.92
+    },
+    {
+      "name": "Marketplace",
+      "customers": 43,
+      "revenue": 982500,
+      "avg_revenue": 22848.84,
+      "churn_rate_pct": 2.33
+    },
+    {
+      "name": "Offline",
+      "customers": 49,
+      "revenue": 1299449,
+      "avg_revenue": 26519.37,
+      "churn_rate_pct": 6.12
+    },
+    {
+      "name": "Website",
+      "customers": 57,
+      "revenue": 1242438,
+      "avg_revenue": 21797.16,
+      "churn_rate_pct": 0.0
+    }
+  ],
+  "category": [
+    {
+      "name": "Apparel",
+      "products": 9,
+      "stock": 3388,
+      "monthly": 1263,
+      "margin": 59.83
+    },
+    {
+      "name": "Beauty",
+      "products": 10,
+      "stock": 2704,
+      "monthly": 1170,
+      "margin": 60.66
+    },
+    {
+      "name": "Electronics",
+      "products": 14,
+      "stock": 3669,
+      "monthly": 1194,
+      "margin": 58.99
+    },
+    {
+      "name": "Grocery",
+      "products": 8,
+      "stock": 2215,
+      "monthly": 701,
+      "margin": 55.89
+    },
+    {
+      "name": "Home",
+      "products": 9,
+      "stock": 1881,
+      "monthly": 948,
+      "margin": 57.02
+    }
+  ]
+}

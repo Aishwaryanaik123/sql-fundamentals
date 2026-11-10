@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business Analytics — Final Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#172033;--muted:#667085;--blue:#3157a4;--line:#e5eaf2;--teal:#278579;--amber:#b7791f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px Arial,sans-serif;color:var(--ink)}
+header{background:#172b4d;color:white;padding:30px max(22px,4vw)}header h1{margin:0 0 8px;font-size:28px}header p{margin:0;color:#dce5f5;line-height:1.55}
+main{max-width:1320px;margin:24px auto;padding:0 20px}.section{margin:28px 0 12px;font-size:19px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:13px}
+.card,.panel,.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px;box-shadow:0 2px 8px #1018280a}
+.value{font-size:27px;font-weight:700;color:var(--blue)}.label{font-weight:600;margin-top:7px}.tag{font-size:11px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.06em}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:15px}.chart{height:330px}
+.note{line-height:1.6;color:#344054}.warning{border-left:4px solid var(--amber);padding-left:14px}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{background:#f7f9fc}
+.small{font-size:12px;color:var(--muted);line-height:1.5}footer{text-align:center;color:var(--muted);font-size:12px;padding:30px}
+@media(max-width:560px){header h1{font-size:23px}.chart{height:300px}main{padding:0 13px}}
+</style></head><body>
+<header><h1>Business Analytics — Final Dashboard</h1>
+<p>Executive view across Real Estate, Customers, and Product Catalogue<br>Final consolidated edition • Built from the Week 9 supplied aggregate snapshot • Source refresh date not supplied</p></header>
+<main>
+<h2 class="section">Executive KPI overview</h2>
+<div class="grid">
+<div class="card"><div class="value">600</div><div class="label">Property listings</div><div class="tag">Real estate</div></div>
+<div class="card"><div class="value">209</div><div class="label">Sold listings</div><div class="tag">Real estate</div></div>
+<div class="card"><div class="value">34.83%</div><div class="label">Sold rate</div><div class="tag">Sold ÷ total listings</div></div>
+<div class="card"><div class="value">183.7</div><div class="label">Avg. days on market</div><div class="tag">Days</div></div>
+<div class="card"><div class="value">200</div><div class="label">Customers</div><div class="tag">Customer domain</div></div>
+<div class="card"><div class="value">4,992,621</div><div class="label">Recorded revenue</div><div class="tag">Source units; currency unconfirmed</div></div>
+<div class="card"><div class="value">3.00%</div><div class="label">Customer churn</div><div class="tag">6 of 200 customers</div></div>
+<div class="card"><div class="value">50</div><div class="label">Products</div><div class="tag">Catalogue</div></div>
+<div class="card"><div class="value">13,857</div><div class="label">Stock units</div><div class="tag">Product domain</div></div>
+<div class="card"><div class="value">58.62%</div><div class="label">Avg. gross margin</div><div class="tag">Unweighted product average</div></div>
+<div class="card"><div class="value">5</div><div class="label">Stock-risk products</div><div class="tag">Stock below avg. monthly sales</div></div>
+</div>
+<h2 class="section">Real estate performance</h2><div class="charts"><div class="panel"><div id="cityRate" class="chart"></div></div><div class="panel"><div id="cityPrice" class="chart"></div></div></div>
+<h2 class="section">Customer performance</h2><div class="charts"><div class="panel"><div id="channelRevenue" class="chart"></div></div><div class="panel"><div id="churn" class="chart"></div></div></div>
+<h2 class="section">Product and inventory</h2><div class="charts"><div class="panel"><div id="stock" class="chart"></div></div><div class="panel"><div id="margin" class="chart"></div></div></div>
+<h2 class="section">Category operating snapshot</h2>
+<div class="panel"><table><thead><tr><th>Category</th><th>Products</th><th>Stock units</th><th>Avg. monthly sales</th><th>Avg. gross margin</th></tr></thead><tbody id="catTable"></tbody></table></div>
+<h2 class="section">Definitions, revisions and data governance</h2>
+<div class="note">
+<b>KPI glossary:</b> Sold rate = sold listings ÷ total listings. Churn rate = churned customers ÷ total customers. Product gross margin = (MRP − COGS) ÷ MRP; displayed category and overall averages are unweighted means of product-level margins.<br><br>
+<b>Revision R1 — revenue unit:</b> Retained “source units”; currency was not supplied and must be confirmed by the data owner before financial decisions.<br>
+<b>Revision R2 — refresh date:</b> Explicitly states that source refresh date was not supplied; no date has been invented.<br>
+<b>Revision R3 — KPI definitions:</b> Glossary added above.<br>
+<b>Revision R4 — inventory drill-down:</b> Category stock/sales comparison and five-product risk count included. Product-level IDs and stock gaps are not shown because the original product-level CSV was not available in the retrieved project files; no product rows are fabricated.<br>
+<b>Revision R5 — city context:</b> City listing counts are displayed with sold rates; differences are descriptive and not adjusted for property mix or transaction mix.<br>
+<b>Revision R6 — usability:</b> Responsive chart layout, consistent number labels, mobile-friendly table and chart sizing included. Browser-level accessibility testing is still recommended.<br>
+<b>Revision R7 — peer review:</b> The Week 9 record was explicitly marked illustrative, not a real peer review. Actual reviewer feedback remains pending and must not be represented as completed.<br><br>
+<b>Scope:</b> The three source domains have no confirmed shared key and are intentionally kept separate. This dashboard is descriptive, not causal or predictive.
+</div>
+<footer>Final dashboard • Interactive Plotly charts • Source snapshot inherited from Week 9</footer>
+</main>
+<script>
+const city=[{"city": "Pune", "listings": 79, "sold": 34, "sold_rate_pct": 43.04, "median_price_lakh": 172.75}, {"city": "Hyderabad", "listings": 72, "sold": 28, "sold_rate_pct": 38.89, "median_price_lakh": 186.82}, {"city": "Bengaluru", "listings": 73, "sold": 28, "sold_rate_pct": 38.36, "median_price_lakh": 221.27}, {"city": "Delhi NCR", "listings": 71, "sold": 25, "sold_rate_pct": 35.21, "median_price_lakh": 167.64}, {"city": "Mumbai", "listings": 76, "sold": 26, "sold_rate_pct": 34.21, "median_price_lakh": 160.67}, {"city": "Ahmedabad", "listings": 69, "sold": 23, "sold_rate_pct": 33.33, "median_price_lakh": 137.38}, {"city": "Kolkata", "listings": 67, "sold": 21, "sold_rate_pct": 31.34, "median_price_lakh": 143.13}, {"city": "Chennai", "listings": 93, "sold": 24, "sold_rate_pct": 25.81, "median_price_lakh": 188.22}], channel=[{"name": "App", "customers": 51, "revenue": 1468234, "avg_revenue": 28788.9, "churn_rate_pct": 3.92}, {"name": "Marketplace", "customers": 43, "revenue": 982500, "avg_revenue": 22848.84, "churn_rate_pct": 2.33}, {"name": "Offline", "customers": 49, "revenue": 1299449, "avg_revenue": 26519.37, "churn_rate_pct": 6.12}, {"name": "Website", "customers": 57, "revenue": 1242438, "avg_revenue": 21797.16, "churn_rate_pct": 0.0}], category=[{"name": "Apparel", "products": 9, "stock": 3388, "monthly": 1263, "margin": 59.83}, {"name": "Beauty", "products": 10, "stock": 2704, "monthly": 1170, "margin": 60.66}, {"name": "Electronics", "products": 14, "stock": 3669, "monthly": 1194, "margin": 58.99}, {"name": "Grocery", "products": 8, "stock": 2215, "monthly": 701, "margin": 55.89}, {"name": "Home", "products": 9, "stock": 1881, "monthly": 948, "margin": 57.02}];
+const base={paper_bgcolor:'white',plot_bgcolor:'white',font:{family:'Arial',color:'#172033'},margin:{l:58,r:20,t:58,b:85}};
+const cfg={responsive:true,displaylogo:false};
+Plotly.newPlot('cityRate',[{x:city.map(x=>x.city),y:city.map(x=>x.sold_rate_pct),type:'bar',marker:{color:'#4267ac'},text:city.map(x=>x.listings+' listings'),hovertemplate:'%{x}<br>Sold rate %{y:.2f}%<br>%{text}<extra></extra>'}],{...base,title:'Sold rate by city',yaxis:{title:'Sold rate (%)',rangemode:'tozero'}},cfg);
+Plotly.newPlot('cityPrice',[{x:city.map(x=>x.city),y:city.map(x=>x.median_price_lakh),type:'bar',marker:{color:'#7c91c7'},hovertemplate:'%{x}<br>Median price ₹%{y:.2f} lakh<extra></extra>'}],{...base,title:'Median listing price by city',yaxis:{title:'Price (₹ lakh)'}},cfg);
+Plotly.newPlot('channelRevenue',[{x:channel.map(x=>x.name),y:channel.map(x=>x.revenue),type:'bar',marker:{color:'#278579'},text:channel.map(x=>x.customers+' customers'),hovertemplate:'%{x}<br>Revenue %{y:,.0f} source units<br>%{text}<extra></extra>'}],{...base,title:'Recorded revenue by acquisition channel',yaxis:{title:'Revenue (source units)'}},cfg);
+Plotly.newPlot('churn',[{labels:['Not flagged as churned','Churned'],values:[194,6],type:'pie',hole:.55,textinfo:'label+percent'}],{paper_bgcolor:'white',title:'Customer churn split',font:{family:'Arial'},margin:{t:55,b:30}},cfg);
+Plotly.newPlot('stock',[{x:category.map(x=>x.name),y:category.map(x=>x.stock),name:'Stock units',type:'bar'},{x:category.map(x=>x.name),y:category.map(x=>x.monthly),name:'Avg. monthly sales',type:'bar'}],{...base,title:'Stock vs average monthly sales by category',barmode:'group',yaxis:{title:'Units'}},cfg);
+Plotly.newPlot('margin',[{x:category.map(x=>x.name),y:category.map(x=>x.margin),type:'bar',marker:{color:'#7c91c7'},hovertemplate:'%{x}<br>Average gross margin %{y:.2f}%<extra></extra>'}],{...base,title:'Average gross margin by category',yaxis:{title:'Margin (%)'}},cfg);
+document.getElementById('catTable').innerHTML=category.map(x=>`<tr><td>${x.name}</td><td>${x.products}</td><td>${x.stock.toLocaleString()}</td><td>${x.monthly.toLocaleString()}</td><td>${x.margin.toFixed(2)}%</td></tr>`).join('');
+</script></body></html>

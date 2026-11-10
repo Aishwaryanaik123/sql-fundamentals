@@ -1,0 +1,7 @@
+WEEK 12 — FINAL DASHBOARD + STRATEGIC BRIEF
+
+Published a consolidated, responsive interactive business analytics dashboard covering real-estate listings, customer performance, and product inventory. Included executive KPI cards, city-level sold-rate and median-price comparisons, acquisition-channel revenue, customer churn, category-level stock versus average monthly sales, gross-margin comparisons, a category summary table, KPI definitions, and data-governance notes. Prepared a two-page strategic brief describing the business situation, key findings, implications, and three prioritized recommendations: resolve stock-risk SKUs, investigate Offline customer churn, and improve city-level property conversion and listing-age management. Added a revision traceability report documenting completed, partially completed, and pending items.
+
+Tools Used: HTML5, CSS3, JavaScript, Plotly.js, Python, ReportLab.
+
+Data integrity: Revenue is retained in unspecified source units; source refresh date was not supplied; raw product-level rows were unavailable in the retrieved project files; and the Week 9 peer-review record was illustrative rather than an actual peer review. These limitations are documented and no unsupported values or peer feedback were invented.
