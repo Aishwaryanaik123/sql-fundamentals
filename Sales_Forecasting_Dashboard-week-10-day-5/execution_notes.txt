@@ -1,0 +1,19 @@
+WEEK 10 DAY 5 — EXECUTION SUMMARY
+
+Project: Sales Forecasting Dashboard
+Data: 84 synthetic monthly observations, Jan 2019–Dec 2025
+Validation: first 72 months train; final 12 months holdout
+Model: linear trend + calendar-month indicator variables
+Holdout MAE: 57.26
+Holdout RMSE: 76.95
+Holdout MAPE: 2.99%
+Forecast horizon: 12 months (Jan–Dec 2026)
+
+Dashboard: reports/sales_forecasting_dashboard.html
+Forecast: reports/12_month_sales_forecast.csv
+Metrics: reports/model_evaluation_metrics.csv
+Validation detail: reports/validation_predictions.csv
+
+The HTML dashboard is standalone and opens in a modern browser without installing software or connecting to the internet. The Python reproduction script uses only the Python standard library and is optional.
+
+Limitations: the data are synthetic; forecast uncertainty is represented by an approximate RMSE-based band and is not a calibrated prediction interval.

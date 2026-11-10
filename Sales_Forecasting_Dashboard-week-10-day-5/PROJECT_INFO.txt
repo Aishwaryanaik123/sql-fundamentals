@@ -1,0 +1,7 @@
+Project: Sales Forecasting Dashboard
+Program: Data Analyst Intern 3M
+Week: 10
+Day: 5
+Primary deliverable: Offline interactive HTML dashboard
+Data: Synthetic monthly sales sample
+Forecast horizon: 12 months

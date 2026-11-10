@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sales Forecasting Dashboard | Week 10 Day 5</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#182230;--muted:#667085;--blue:#315efb;--teal:#0f9d8a;--line:#e5e9f2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px/1.5 Arial,sans-serif;color:var(--ink)}
+header{background:#14213d;color:#fff;padding:28px max(22px,calc((100% - 1180px)/2))}
+header h1{margin:0 0 5px;font-size:26px}header p{margin:0;color:#d7deed}
+main{max-width:1180px;margin:24px auto;padding:0 18px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;box-shadow:0 3px 12px #15213a0a}
+.kpi small{color:var(--muted)}.kpi strong{display:block;font-size:25px;margin-top:6px}
+.grid{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;margin-bottom:16px}
+h2{font-size:17px;margin:0 0 14px}.sub{color:var(--muted);font-size:13px;margin-top:-8px;margin-bottom:12px}
+canvas{width:100%;height:270px;display:block}.wide canvas{height:310px}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 7px;text-align:right;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}
+footer{color:var(--muted);font-size:12px;padding:18px 0 28px}
+@media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header><h1>Sales Forecasting Dashboard</h1><p>Data Analyst Intern 3M · Week 10 Day 5 · Historical performance and 12-month outlook</p></header>
+<main>
+<section class="kpis">
+<div class="card kpi"><small>Historical observations</small><strong>84 months</strong></div>
+<div class="card kpi"><small>Latest actual sales</small><strong>2,529</strong></div>
+<div class="card kpi"><small>Validation MAE</small><strong>57.26</strong></div>
+<div class="card kpi"><small>Validation RMSE</small><strong>76.95</strong></div>
+</section>
+<section class="card wide"><h2>Historical sales and 12-month forecast</h2><p class="sub">Monthly sales from Jan 2019–Dec 2025, followed by the Jan–Dec 2026 forecast.</p><canvas id="trend"></canvas><p class="note">The forecast uses a linear trend with month-of-year seasonal indicators. The shaded forecast range is an approximate error band based on holdout RMSE, not a calibrated statistical prediction interval.</p></section>
+<section class="grid">
+<div class="card"><h2>Average sales by calendar month</h2><p class="sub">Average across all available years.</p><canvas id="season"></canvas></div>
+<div class="card"><h2>Model validation</h2><p class="sub">Last 12 historical months held out from training.</p>
+<table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+<tr><td>MAE</td><td>57.26</td></tr><tr><td>RMSE</td><td>76.95</td></tr><tr><td>MAPE</td><td>2.99%</td></tr></tbody></table>
+<p class="note">Lower error values indicate closer predictions on the validation period. Performance on synthetic data may not reflect real business performance.</p></div>
+</section>
+<section class="card"><h2>12-month forecast details</h2><div style="overflow:auto"><table><thead><tr><th>Month</th><th>Forecast sales</th><th>Lower estimate</th><th>Upper estimate</th></tr></thead><tbody>
+<tr><td>2026-01</td><td>1,707.45</td><td>1,592.02</td><td>1,822.88</td></tr><tr><td>2026-02</td><td>1,718.29</td><td>1,602.86</td><td>1,833.71</td></tr><tr><td>2026-03</td><td>1,837.02</td><td>1,721.59</td><td>1,952.45</td></tr><tr><td>2026-04</td><td>1,890.30</td><td>1,774.87</td><td>2,005.73</td></tr><tr><td>2026-05</td><td>1,957.08</td><td>1,841.65</td><td>2,072.50</td></tr><tr><td>2026-06</td><td>2,016.42</td><td>1,900.99</td><td>2,131.85</td></tr><tr><td>2026-07</td><td>1,997.45</td><td>1,882.02</td><td>2,112.88</td></tr><tr><td>2026-08</td><td>1,965.72</td><td>1,850.29</td><td>2,081.15</td></tr><tr><td>2026-09</td><td>2,061.64</td><td>1,946.21</td><td>2,177.07</td></tr><tr><td>2026-10</td><td>2,163.62</td><td>2,048.19</td><td>2,279.05</td></tr><tr><td>2026-11</td><td>2,300.61</td><td>2,185.18</td><td>2,416.03</td></tr><tr><td>2026-12</td><td>2,514.42</td><td>2,399.00</td><td>2,629.85</td></tr>
+</tbody></table></div></section>
+<footer>Prepared for Week 10 Day 5. Dataset is generated synthetic sample data for demonstration; it is not official company or live sales data.</footer>
+</main>
+<script>
+const hist=[{"date": "2019-01", "sales": 771.34}, {"date": "2019-02", "sales": 740.76}, {"date": "2019-03", "sales": 842.87}, {"date": "2019-04", "sales": 885.36}, {"date": "2019-05", "sales": 972.01}, {"date": "2019-06", "sales": 1015.24}, {"date": "2019-07", "sales": 1031.52}, {"date": "2019-08", "sales": 944.87}, {"date": "2019-09", "sales": 1042.93}, {"date": "2019-10", "sales": 1072.2}, {"date": "2019-11", "sales": 1207.35}, {"date": "2019-12", "sales": 1376.1}, {"date": "2020-01", "sales": 819.84}, {"date": "2020-02", "sales": 879.94}, {"date": "2020-03", "sales": 1013.83}, {"date": "2020-04", "sales": 1055.99}, {"date": "2020-05", "sales": 1053.25}, {"date": "2020-06", "sales": 1149.14}, {"date": "2020-07", "sales": 1163.18}, {"date": "2020-08", "sales": 1075.4}, {"date": "2020-09", "sales": 1231.44}, {"date": "2020-10", "sales": 1300.28}, {"date": "2020-11", "sales": 1389.09}, {"date": "2020-12", "sales": 1522.53}, {"date": "2021-01", "sales": 1038.13}, {"date": "2021-02", "sales": 1015.15}, {"date": "2021-03", "sales": 1082.26}, {"date": "2021-04", "sales": 1141.93}, {"date": "2021-05", "sales": 1260.22}, {"date": "2021-06", "sales": 1294.25}, {"date": "2021-07", "sales": 1303.68}, {"date": "2021-08", "sales": 1294.34}, {"date": "2021-09", "sales": 1348.07}, {"date": "2021-10", "sales": 1485.08}, {"date": "2021-11", "sales": 1561.66}, {"date": "2021-12", "sales": 1751.07}, {"date": "2022-01", "sales": 1139.99}, {"date": "2022-02", "sales": 1166.22}, {"date": "2022-03", "sales": 1296.57}, {"date": "2022-04", "sales": 1330.04}, {"date": "2022-05", "sales": 1382.5}, {"date": "2022-06", "sales": 1376.4}, {"date": "2022-07", "sales": 1380.73}, {"date": "2022-08", "sales": 1385.28}, {"date": "2022-09", "sales": 1444.14}, {"date": "2022-10", "sales": 1558.21}, {"date": "2022-11", "sales": 1699.49}, {"date": "2022-12", "sales": 1905.85}, {"date": "2023-01", "sales": 1234.61}, {"date": "2023-02", "sales": 1258.38}, {"date": "2023-03", "sales": 1372.22}, {"date": "2023-04", "sales": 1424.82}, {"date": "2023-05", "sales": 1472.37}, {"date": "2023-06", "sales": 1617.91}, {"date": "2023-07", "sales": 1567.7}, {"date": "2023-08", "sales": 1559.83}, {"date": "2023-09", "sales": 1600.47}, {"date": "2023-10", "sales": 1767.36}, {"date": "2023-11", "sales": 1874.71}, {"date": "2023-12", "sales": 2101.93}, {"date": "2024-01", "sales": 1389.45}, {"date": "2024-02", "sales": 1408.7}, {"date": "2024-03", "sales": 1522.48}, {"date": "2024-04", "sales": 1612.32}, {"date": "2024-05", "sales": 1673.71}, {"date": "2024-06", "sales": 1743.76}, {"date": "2024-07", "sales": 1662.38}, {"date": "2024-08", "sales": 1635.74}, {"date": "2024-09", "sales": 1762.62}, {"date": "2024-10", "sales": 1871.17}, {"date": "2024-11", "sales": 2048.31}, {"date": "2024-12", "sales": 2348.83}, {"date": "2025-01", "sales": 1492.92}, {"date": "2025-02", "sales": 1492.98}, {"date": "2025-03", "sales": 1663.04}, {"date": "2025-04", "sales": 1715.77}, {"date": "2025-05", "sales": 1819.6}, {"date": "2025-06", "sales": 1852.39}, {"date": "2025-07", "sales": 1807.08}, {"date": "2025-08", "sales": 1798.71}, {"date": "2025-09", "sales": 1935.95}, {"date": "2025-10", "sales": 2025.18}, {"date": "2025-11", "sales": 2257.76}, {"date": "2025-12", "sales": 2528.79}], fc=[{"date": "2026-01", "forecast": 1707.45, "low": 1592.02, "high": 1822.88}, {"date": "2026-02", "forecast": 1718.29, "low": 1602.86, "high": 1833.71}, {"date": "2026-03", "forecast": 1837.02, "low": 1721.59, "high": 1952.45}, {"date": "2026-04", "forecast": 1890.3, "low": 1774.87, "high": 2005.73}, {"date": "2026-05", "forecast": 1957.08, "low": 1841.65, "high": 2072.5}, {"date": "2026-06", "forecast": 2016.42, "low": 1900.99, "high": 2131.85}, {"date": "2026-07", "forecast": 1997.45, "low": 1882.02, "high": 2112.88}, {"date": "2026-08", "forecast": 1965.72, "low": 1850.29, "high": 2081.15}, {"date": "2026-09", "forecast": 2061.64, "low": 1946.21, "high": 2177.07}, {"date": "2026-10", "forecast": 2163.62, "low": 2048.19, "high": 2279.05}, {"date": "2026-11", "forecast": 2300.61, "low": 2185.18, "high": 2416.03}, {"date": "2026-12", "forecast": 2514.42, "low": 2399.0, "high": 2629.85}], monthly=[{"month": "Jan", "avg": 1126.61}, {"month": "Feb", "avg": 1137.45}, {"month": "Mar", "avg": 1256.18}, {"month": "Apr", "avg": 1309.46}, {"month": "May", "avg": 1376.24}, {"month": "Jun", "avg": 1435.58}, {"month": "Jul", "avg": 1416.61}, {"month": "Aug", "avg": 1384.88}, {"month": "Sep", "avg": 1480.8}, {"month": "Oct", "avg": 1582.78}, {"month": "Nov", "avg": 1719.77}, {"month": "Dec", "avg": 1933.59}];
+function drawLine(id, labels, series, opts={}) {
+ const c=document.getElementById(id),ctx=c.getContext('2d'),w=c.clientWidth,h=c.clientHeight,dpr=window.devicePixelRatio||1;
+ c.width=w*dpr;c.height=h*dpr;ctx.scale(dpr,dpr);
+ const pad={l:48,r:16,t:18,b:34},pw=w-pad.l-pad.r,ph=h-pad.t-pad.b;
+ const all=series.flatMap(s=>s.values);let min=Math.min(...all),max=Math.max(...all);min=Math.floor(min*.9);max=Math.ceil(max*1.08);
+ ctx.strokeStyle='#e7ebf3';ctx.fillStyle='#667085';ctx.font='11px Arial';
+ for(let i=0;i<5;i++){let y=pad.t+ph*i/4;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke();ctx.fillText(Math.round(max-(max-min)*i/4).toLocaleString(),4,y+4)}
+ series.forEach(s=>{ctx.strokeStyle=s.color;ctx.lineWidth=2.3;ctx.beginPath();s.values.forEach((v,i)=>{let x=pad.l+pw*i/(s.values.length-1),y=pad.t+ph*(max-v)/(max-min);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.stroke()});
+ [0,Math.floor((labels.length-1)/2),labels.length-1].forEach(i=>{let x=pad.l+pw*i/(labels.length-1);ctx.fillText(labels[i],Math.max(0,x-24),h-9)});
+ }
+function drawBars(id,items){const c=document.getElementById(id),ctx=c.getContext('2d'),w=c.clientWidth,h=c.clientHeight,dpr=window.devicePixelRatio||1;c.width=w*dpr;c.height=h*dpr;ctx.scale(dpr,dpr);
+const pad={l:42,r:10,t:16,b:30},pw=w-pad.l-pad.r,ph=h-pad.t-pad.b,max=Math.max(...items.map(x=>x.avg))*1.12;
+ctx.strokeStyle='#e7ebf3';ctx.fillStyle='#667085';ctx.font='11px Arial';
+for(let i=0;i<4;i++){let y=pad.t+ph*i/3;ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke()}
+let bw=pw/items.length*.62;items.forEach((x,i)=>{let bh=x.avg/max*ph,xx=pad.l+(i+.5)*pw/items.length-bw/2;ctx.fillStyle='#315efb';ctx.fillRect(xx,pad.t+ph-bh,bw,bh);ctx.fillStyle='#667085';ctx.fillText(x.month,xx-1,h-9)})}
+const labels=hist.map(x=>x.date).concat(fc.map(x=>x.date));
+const vals=hist.map(x=>x.sales).concat(fc.map(x=>null));
+const forecastVals=Array(hist.length-1).fill(null).concat([hist[hist.length-1].sales],fc.map(x=>x.forecast));
+drawLine('trend',labels,[{values:vals,color:'#315efb'},{values:forecastVals,color:'#0f9d8a'}]);
+drawBars('season',monthly);
+window.addEventListener('resize',()=>{drawLine('trend',labels,[{values:vals,color:'#315efb'},{values:forecastVals,color:'#0f9d8a'}]);drawBars('season',monthly)});
+</script></body></html>

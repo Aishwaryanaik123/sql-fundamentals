@@ -1,0 +1,4 @@
+metric,value,meaning
+MAE,57.26,Average absolute forecast error in sales units
+RMSE,76.95,Penalizes larger forecast errors
+MAPE,2.99,Average absolute percentage error
