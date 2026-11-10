@@ -1,0 +1,6 @@
+Project: Building Executive Reports — Plotly + python-pptx
+Program: Data Analyst Intern 3M
+Week: 11
+Day: 2
+Primary outputs: Executive PowerPoint report and offline Plotly dashboards
+Dataset: Synthetic sales data, 2023–2025

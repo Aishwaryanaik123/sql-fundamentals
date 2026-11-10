@@ -1,0 +1,17 @@
+WEEK 11 DAY 2 — EXECUTION SUMMARY
+Project: Building Executive Reports — Plotly + python-pptx
+Dataset: 432 synthetic monthly-region-category records (2023–2025)
+Annual sales: 2023 ₹4.77M | 2024 ₹5.24M | 2025 ₹5.77M
+2024 YoY growth: 9.93%
+2025 YoY growth: 10.21%
+Top region: West (27.7%)
+Top category: Fashion (34.3%)
+Peak average sales month: December
+
+Deliverables:
+- reports/executive_sales_report.pptx (8 slides)
+- reports/plotly_executive_dashboard.html (offline interactive dashboard)
+- reports/plotly_seasonality.html (offline interactive chart)
+- reports/executive_kpi_summary.csv
+
+All data are synthetic and illustrative. No installation is needed to open the deliverables.
