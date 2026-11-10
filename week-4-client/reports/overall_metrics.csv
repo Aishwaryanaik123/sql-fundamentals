@@ -1,0 +1,9 @@
+Metric,Value
+Customer records,200
+Total revenue (source units),4992621
+Average revenue per customer,24963.1
+Churned customers,6
+Churn rate (%),3.0
+Selected clusters,5
+Selected silhouette score,0.3223
+Recency snapshot date,2026-07-07

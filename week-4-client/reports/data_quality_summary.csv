@@ -1,0 +1,4 @@
+dataset,rows,columns,missing_cells,duplicate_rows,duplicate_candidate_keys,candidate_key
+da_realestate_listings.csv,600,15,0,0,0,listing_id
+da_customer_profiles.csv,200,10,0,0,0,Customer_ID
+da_product_catalogue.csv,50,7,0,0,0,Product_ID

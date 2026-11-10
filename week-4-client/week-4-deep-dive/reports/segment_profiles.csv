@@ -1,0 +1,6 @@
+Cluster,Segment,Customers,Avg_Orders,Avg_Revenue,Median_Revenue,Avg_Order_Value,Avg_Tenure_Days,Avg_Recency_Days,Churned_Customers,Churn_Rate_Pct
+1,"Low-frequency, high-ticket / churn-risk",36,3.11,25513.14,23769.0,11253.39,200.42,235.31,6,16.67
+2,"High-frequency, short-tenure anomaly",39,14.28,25127.74,22041.0,1844.52,1.18,236.59,0,0.0
+3,"High-value, recently active",34,10.06,32762.32,37351.0,4637.01,393.44,29.18,0,0.0
+4,"Frequent, low-spend",24,14.21,4136.12,3977.0,321.72,272.83,205.08,0,0.0
+5,"Established, mid-value / less recent",67,14.25,28074.33,27112.0,2063.78,267.79,200.16,0,0.0
