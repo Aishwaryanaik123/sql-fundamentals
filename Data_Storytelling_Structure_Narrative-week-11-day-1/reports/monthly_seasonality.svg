@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="350" viewBox="0 0 850 350"><rect width="100%" height="100%" fill="white"/><text x="75" y="30" font-size="20" font-family="Arial" font-weight="bold" fill="#17243a">Average monthly sales</text>
+<line x1="75" y1="55.0" x2="825" y2="55.0" stroke="#e7edf5"/>
+<text x="67" y="59.0" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">37,784</text>
+<line x1="75" y1="116.25" x2="825" y2="116.25" stroke="#e7edf5"/>
+<text x="67" y="120.25" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">28,338</text>
+<line x1="75" y1="177.5" x2="825" y2="177.5" stroke="#e7edf5"/>
+<text x="67" y="181.5" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">18,892</text>
+<line x1="75" y1="238.75" x2="825" y2="238.75" stroke="#e7edf5"/>
+<text x="67" y="242.75" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">9,446</text>
+<line x1="75" y1="300.0" x2="825" y2="300.0" stroke="#e7edf5"/>
+<text x="67" y="304.0" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">0</text>
+<rect x="88.125" y="152.11917836649468" width="36.25" height="147.88082163350532" rx="4" fill="#315efb"/>
+<text x="106.25" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Jan</text>
+<rect x="150.625" y="147.94526119426408" width="36.25" height="152.05473880573592" rx="4" fill="#315efb"/>
+<text x="168.75" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Feb</text>
+<rect x="213.125" y="143.1573477870483" width="36.25" height="156.8426522129517" rx="4" fill="#315efb"/>
+<text x="231.25" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Mar</text>
+<rect x="275.625" y="141.13173208716998" width="36.25" height="158.86826791283002" rx="4" fill="#315efb"/>
+<text x="293.75" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Apr</text>
+<rect x="338.125" y="137.10968525404274" width="36.25" height="162.89031474595726" rx="4" fill="#315efb"/>
+<text x="356.25" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">May</text>
+<rect x="400.625" y="134.09393409405723" width="36.25" height="165.90606590594277" rx="4" fill="#315efb"/>
+<text x="418.75" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Jun</text>
+<rect x="463.125" y="134.5288297067629" width="36.25" height="165.4711702932371" rx="4" fill="#315efb"/>
+<text x="481.25" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Jul</text>
+<rect x="525.625" y="134.95841363107814" width="36.25" height="165.04158636892186" rx="4" fill="#315efb"/>
+<text x="543.75" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Aug</text>
+<rect x="588.125" y="125.67713065493416" width="36.25" height="174.32286934506584" rx="4" fill="#315efb"/>
+<text x="606.25" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Sep</text>
+<rect x="650.625" y="117.15831361955179" width="36.25" height="182.8416863804482" rx="4" fill="#315efb"/>
+<text x="668.75" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Oct</text>
+<rect x="713.125" y="104.86667942977522" width="36.25" height="195.13332057022478" rx="4" fill="#315efb"/>
+<text x="731.25" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Nov</text>
+<rect x="775.625" y="86.95652173913041" width="36.25" height="213.0434782608696" rx="4" fill="#315efb"/>
+<text x="793.75" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Dec</text>
+</svg>

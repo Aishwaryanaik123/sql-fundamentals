@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="350" viewBox="0 0 850 350"><rect width="100%" height="100%" fill="white"/><text x="75" y="30" font-size="20" font-family="Arial" font-weight="bold" fill="#17243a">Total sales by product</text>
+<line x1="75" y1="55.0" x2="825" y2="55.0" stroke="#e7edf5"/>
+<text x="67" y="59.0" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">4,607,323</text>
+<line x1="75" y1="116.25" x2="825" y2="116.25" stroke="#e7edf5"/>
+<text x="67" y="120.25" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">3,455,492</text>
+<line x1="75" y1="177.5" x2="825" y2="177.5" stroke="#e7edf5"/>
+<text x="67" y="181.5" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">2,303,661</text>
+<line x1="75" y1="238.75" x2="825" y2="238.75" stroke="#e7edf5"/>
+<text x="67" y="242.75" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">1,151,831</text>
+<line x1="75" y1="300.0" x2="825" y2="300.0" stroke="#e7edf5"/>
+<text x="67" y="304.0" text-anchor="end" font-size="11" fill="#64748b" font-family="Arial">0</text>
+<rect x="127.5" y="108.12586780345777" width="145.0" height="191.87413219654223" rx="4" fill="#315efb"/>
+<text x="200.0" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Electronics</text>
+<rect x="377.5" y="102.56192311830006" width="145.0" height="197.43807688169994" rx="4" fill="#315efb"/>
+<text x="450.0" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Home & Living</text>
+<rect x="627.5" y="86.95652173913038" width="145.0" height="213.04347826086962" rx="4" fill="#315efb"/>
+<text x="700.0" y="332" text-anchor="middle" font-size="11" fill="#334155" font-family="Arial">Fashion</text>
+</svg>

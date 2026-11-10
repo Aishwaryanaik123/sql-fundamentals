@@ -1,0 +1,14 @@
+WEEK 11 DAY 1 — EXECUTION NOTES
+Topic: Data Storytelling Principles — Structure + Narrative
+Dataset: Synthetic sales performance, 2023–2025
+Records: 432 (4 regions × 3 products × 36 months)
+2024 growth vs 2023: 9.1%
+2025 growth vs 2024: 9.5%
+Cumulative growth: 19.5%
+Largest region: West (27.3%)
+Largest product: Fashion (35.4%)
+Peak average sales month: December
+Narrative: Context → Tension → Insight → Action
+Primary deliverable: reports/storytelling_presentation.html
+Open the HTML file in a browser; no installation or internet connection is required.
+All data are synthetic and illustrative.

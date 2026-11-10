@@ -1,0 +1,7 @@
+Project: Data Storytelling Principles — Structure + Narrative
+Program: Data Analyst Intern 3M
+Week: 11
+Day: 1
+Primary deliverable: Offline HTML storytelling presentation
+Dataset: Synthetic sales performance, 2023–2025
+Narrative: Context → Tension → Insight → Action
