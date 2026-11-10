@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analytics Dashboard v1</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#172033;--muted:#667085;--accent:#3157a4;--line:#e6eaf2}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:var(--ink)}
+header{background:#172b4d;color:white;padding:28px 4vw} header h1{margin:0 0 8px;font-size:28px} header p{margin:0;color:#dce5f5;line-height:1.5}
+main{max-width:1280px;margin:24px auto;padding:0 20px} .section-title{margin:28px 0 12px;font-size:19px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.kpi,.panel,.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 2px 8px rgba(16,24,40,.04)}
+.value{font-size:27px;font-weight:700;color:var(--accent)} .label{margin-top:6px;font-weight:600} .tag{font-size:11px;color:var(--muted);margin-top:7px;text-transform:uppercase;letter-spacing:.07em}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:16px} .chart{height:340px}
+.note{line-height:1.55;color:#475467} footer{text-align:center;color:var(--muted);font-size:12px;padding:30px}
+@media(max-width:500px){.charts{grid-template-columns:1fr} .chart{height:300px}}
+</style></head><body>
+<header><h1>Business Analytics Dashboard — Version 1</h1>
+<p>Real estate listings • Customer profiles • Product catalogue<br>Prepared for dashboard v1 review | Dataset snapshot: supplied CSV extracts</p></header>
+<main>
+<h2 class="section-title">Executive KPI overview</h2><div class="grid"><div class="kpi"><div class="value">600</div><div class="label">Property listings</div><div class="tag">Real estate</div></div><div class="kpi"><div class="value">209</div><div class="label">Sold listings</div><div class="tag">Real estate</div></div><div class="kpi"><div class="value">34.83%</div><div class="label">Sold rate</div><div class="tag">Real estate</div></div><div class="kpi"><div class="value">200</div><div class="label">Customers</div><div class="tag">Customer</div></div><div class="kpi"><div class="value">4,992,621</div><div class="label">Recorded revenue</div><div class="tag">Source units</div></div><div class="kpi"><div class="value">3.00%</div><div class="label">Customer churn rate</div><div class="tag">Customer</div></div><div class="kpi"><div class="value">50</div><div class="label">Products</div><div class="tag">Catalogue</div></div><div class="kpi"><div class="value">13,857</div><div class="label">Stock units</div><div class="tag">Catalogue</div></div><div class="kpi"><div class="value">58.62%</div><div class="label">Average gross margin</div><div class="tag">Product</div></div></div>
+<h2 class="section-title">Real estate performance</h2><div class="charts">
+<div class="panel"><div id="cityChart" class="chart"></div></div>
+<div class="panel"><div id="priceChart" class="chart"></div></div></div>
+<h2 class="section-title">Customer performance</h2><div class="charts">
+<div class="panel"><div id="channelChart" class="chart"></div></div>
+<div class="panel"><div id="churnChart" class="chart"></div></div></div>
+<h2 class="section-title">Product and inventory</h2><div class="charts">
+<div class="panel"><div id="stockChart" class="chart"></div></div>
+<div class="panel"><div id="marginChart" class="chart"></div></div></div>
+<h2 class="section-title">Interpretation and data notes</h2>
+<div class="note">
+<b>Real estate:</b> 600 listings are represented; 209 are marked sold (34.83%). Median listing price is 172.595 lakh and average days on market is 183.7. City comparisons are descriptive and should be interpreted with listing mix in mind.<br><br>
+<b>Customers:</b> 200 customer records contribute 4,992,621 recorded revenue units across 2,307 orders. Six customers are flagged as churned (3%). The dataset does not specify the currency unit.<br><br>
+<b>Products:</b> 50 products contain 13,857 stock units and 5,276 average monthly sales units. Five products have stock below their average monthly sales. Average gross margin is the unweighted average of product-level (MRP − COGS) / MRP.<br><br>
+<b>Scope:</b> These three CSVs represent separate business domains and have no supplied common key for reliable joining. KPIs are therefore presented in separate sections rather than combining unrelated records. This is a descriptive v1 dashboard, not a causal or predictive model.
+</div></main><footer>Dashboard v1 • Generated from supplied CSV files • Review before business use</footer>
+<script>
+const city=[{"city":"Pune","listings":79,"sold":34,"sold_rate_pct":43.04,"median_price_lakh":172.75},{"city":"Hyderabad","listings":72,"sold":28,"sold_rate_pct":38.89,"median_price_lakh":186.82},{"city":"Bengaluru","listings":73,"sold":28,"sold_rate_pct":38.36,"median_price_lakh":221.27},{"city":"Delhi NCR","listings":71,"sold":25,"sold_rate_pct":35.21,"median_price_lakh":167.64},{"city":"Mumbai","listings":76,"sold":26,"sold_rate_pct":34.21,"median_price_lakh":160.67},{"city":"Ahmedabad","listings":69,"sold":23,"sold_rate_pct":33.33,"median_price_lakh":137.38},{"city":"Kolkata","listings":67,"sold":21,"sold_rate_pct":31.34,"median_price_lakh":143.13},{"city":"Chennai","listings":93,"sold":24,"sold_rate_pct":25.81,"median_price_lakh":188.22}], channel=[{"Acquisition_Channel":"App","customers":51,"revenue":1468234,"avg_revenue":28788.9,"churn_rate_pct":3.92},{"Acquisition_Channel":"Marketplace","customers":43,"revenue":982500,"avg_revenue":22848.84,"churn_rate_pct":2.33},{"Acquisition_Channel":"Offline","customers":49,"revenue":1299449,"avg_revenue":26519.37,"churn_rate_pct":6.12},{"Acquisition_Channel":"Website","customers":57,"revenue":1242438,"avg_revenue":21797.16,"churn_rate_pct":0.0}], category=[{"Category":"Apparel","products":9,"stock_units":3388,"avg_monthly_sales":1263,"avg_gross_margin_pct":59.83},{"Category":"Beauty","products":10,"stock_units":2704,"avg_monthly_sales":1170,"avg_gross_margin_pct":60.66},{"Category":"Electronics","products":14,"stock_units":3669,"avg_monthly_sales":1194,"avg_gross_margin_pct":58.99},{"Category":"Grocery","products":8,"stock_units":2215,"avg_monthly_sales":701,"avg_gross_margin_pct":55.89},{"Category":"Home","products":9,"stock_units":1881,"avg_monthly_sales":948,"avg_gross_margin_pct":57.02}];
+const layoutBase={paper_bgcolor:'white',plot_bgcolor:'white',font:{family:'Arial',color:'#172033'},margin:{l:55,r:20,t:55,b:80}};
+Plotly.newPlot('cityChart',[{x:city.map(d=>d.city),y:city.map(d=>d.sold_rate_pct),type:'bar',marker:{color:'#4267ac'},hovertemplate:'%{x}<br>Sold rate: %{y:.1f}%<extra></extra>'}],{...layoutBase,title:'Sold rate by city',yaxis:{title:'Sold rate (%)'}},{responsive:true});
+Plotly.newPlot('priceChart',[{x:city.map(d=>d.city),y:city.map(d=>d.median_price_lakh),type:'bar',marker:{color:'#7c91c7'},hovertemplate:'%{x}<br>Median price: ₹%{y:.2f} lakh<extra></extra>'}],{...layoutBase,title:'Median listing price by city',yaxis:{title:'Price (lakh)'}},{responsive:true});
+Plotly.newPlot('channelChart',[{x:channel.map(d=>d.Acquisition_Channel),y:channel.map(d=>d.revenue),type:'bar',marker:{color:'#3e8c85'}}],{...layoutBase,title:'Recorded revenue by acquisition channel',yaxis:{title:'Revenue (source units)'}},{responsive:true});
+Plotly.newPlot('churnChart',[{labels:['Active / not churned','Churned'],values:[194,6],type:'pie',hole:.55,textinfo:'label+percent',marker:{colors:['#6e9b91','#d58b72']}}],{paper_bgcolor:'white',title:'Customer churn split',font:{family:'Arial'}},{responsive:true});
+Plotly.newPlot('stockChart',[{x:category.map(d=>d.Category),y:category.map(d=>d.stock_units),name:'Stock units',type:'bar',marker:{color:'#4267ac'}},{x:category.map(d=>d.Category),y:category.map(d=>d.avg_monthly_sales),name:'Average monthly sales',type:'bar',marker:{color:'#e1a15b'}}],{...layoutBase,title:'Stock vs average monthly sales',barmode:'group',yaxis:{title:'Units'}},{responsive:true});
+Plotly.newPlot('marginChart',[{x:category.map(d=>d.Category),y:category.map(d=>d.avg_gross_margin_pct),type:'bar',marker:{color:'#7c91c7'},hovertemplate:'%{x}<br>Avg gross margin: %{y:.1f}%<extra></extra>'}],{...layoutBase,title:'Average gross margin by category',yaxis:{title:'Margin (%)'}},{responsive:true});
+</script></body></html>

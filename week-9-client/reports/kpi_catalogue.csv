@@ -1,0 +1,17 @@
+Domain,KPI,Value,Definition / note
+Real estate,Listings in dataset,600.0,Number of listing records
+Real estate,Sold listings,209.0,Count where sold = 1
+Real estate,Sold rate (%),34.83,Sold listings / all listings
+Real estate,Median listing price (lakh),172.6,Median total_price_lakh
+Real estate,Average days on market,183.7,Mean days_on_market
+Customers,Customers,200.0,One row per customer
+Customers,Total recorded revenue,4992621.0,Source units; currency not specified
+Customers,Total orders,2307.0,Sum of customer-level order counts
+Customers,Average revenue per customer,24963.1,Total revenue / customers
+Customers,Churned customers,6.0,Count where Churned = 1
+Customers,Churn rate (%),3.0,Churned / customers
+Products,Products in catalogue,50.0,Number of product records
+Products,Total stock units,13857.0,Sum of Stock_Units
+Products,Total average monthly sales,5276.0,Sum of Avg_Monthly_Sales
+Products,Average gross margin (%),58.62,Unweighted mean of product-level margins
+Products,Products below monthly sales stock,5.0,Count where stock is below average monthly sales

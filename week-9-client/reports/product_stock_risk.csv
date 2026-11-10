@@ -1,0 +1,6 @@
+Product_ID,Name,Category,Stock_Units,Avg_Monthly_Sales,stock_gap_units
+P6,Product_6,Electronics,8,167,159
+P7,Product_7,Home,162,199,37
+P9,Product_9,Apparel,138,188,50
+P24,Product_24,Grocery,138,140,2
+P42,Product_42,Beauty,78,111,33
