@@ -1,1 +1,0 @@
-Tools used: Python, Pandas, SQLite, SQL, Git, CSV, VS Code (optional), GitHub (remote hosting when pushed).
