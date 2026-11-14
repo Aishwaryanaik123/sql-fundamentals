@@ -1,0 +1,4 @@
+Suggested branch: feature/week-11-day-4
+Suggested commit message: feat: metabase self-serve bi dashboard setup
+
+Stage only this project folder and its root README on the feature branch. Do not use git add . if other day folders are present.

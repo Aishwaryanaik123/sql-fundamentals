@@ -1,0 +1,5 @@
+-- Run this after the PostgreSQL container is ready.
+-- The easiest CSV import option is the Metabase Admin > Databases flow
+-- after creating a separate data database, or use psql \\copy from the host.
+-- Example from a host with psql installed:
+-- \copy sales_performance FROM 'D:/path/to/sales_performance.csv' WITH (FORMAT csv, HEADER true);

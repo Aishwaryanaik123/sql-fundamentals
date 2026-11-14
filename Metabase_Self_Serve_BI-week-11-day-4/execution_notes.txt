@@ -1,0 +1,20 @@
+WEEK 11 DAY 4 – EXECUTION NOTES
+
+Project: Metabase Self-Serve BI Setup
+Dataset rows: 288
+Date range: 2024-01-01 to 2025-12-01
+Regions: North, South, East, West
+Product categories: Electronics, Furniture, Office Supplies
+Total sales: 4624904.41
+Total profit: 838700.25
+Total orders: 12556
+Average order value: 368.34
+
+Prepared visualizations:
+1. Bar – sales by region
+2. Line – monthly sales trend
+3. Pie – product category sales mix
+4. Table – regional sales summary
+5. Metric cards – total sales, total profit, total orders, average order value
+
+Note: Metabase was not launched in this environment. Dashboard images are local previews, not native Metabase exports.
