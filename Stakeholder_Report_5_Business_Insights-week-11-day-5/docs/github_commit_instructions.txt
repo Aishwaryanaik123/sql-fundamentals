@@ -1,0 +1,5 @@
+Suggested branch: feature/week-11-day-5
+Suggested commit: feat: stakeholder report with five business insights
+
+Stage only this project folder and the root README.md on the feature branch.
+Do not merge into master unless explicitly instructed.
