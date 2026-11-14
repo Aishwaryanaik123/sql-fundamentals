@@ -1,0 +1,12 @@
+WEEK 11 DAY 3 – EXECUTION NOTES
+Rows: 288
+Date range: 2024-01-01 to 2025-12-01
+Regions: North, South, East, West
+Product categories: Electronics, Furniture, Office Supplies
+Total sales: 4570018.75
+Total profit: 818525.49
+Total orders: 12973
+Average order value: 352.27
+
+Prepared chart types: bar, line, pie, table, metric cards.
+The dashboard PNG is a static preview. Live Superset setup/export is documented but was not executed in this environment.
