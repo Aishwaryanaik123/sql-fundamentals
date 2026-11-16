@@ -1,0 +1,11 @@
+Area,Proposed target / control,Validation
+Availability,Agree service target and maintenance windows with stakeholders,Monthly availability report
+Freshness,Critical data refreshed by agreed business deadline,Freshness checks and dashboard timestamp
+Reliability,Retries and idempotent loads; avoid duplicate records,Failure/retry and duplicate-load tests
+Security,"Least privilege, encryption in transit/at rest, managed secrets",Access review and security checklist
+Data quality,"Schema, null, uniqueness, and reconciliation checks",Automated test results
+Performance,Set dashboard/query response targets from user needs,Load test and query monitoring
+Recovery,Agree RPO/RTO; test backups and restoration,Backup restore exercise
+Maintainability,"Git, reviewed changes, documented rollback",Release checklist and code review
+Observability,"Central logs, metrics, alerts, job status",Alert test and operational dashboard
+Cost,"Budgets, tagging, retention, query optimization",Monthly cost review

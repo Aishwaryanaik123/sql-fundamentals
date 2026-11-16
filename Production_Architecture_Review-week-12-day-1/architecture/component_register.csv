@@ -1,0 +1,10 @@
+Layer,Pattern / component,Purpose,Production control
+Sources,"Databases, approved files, APIs",Business and operational data,"Source owner, access approval, data contracts"
+Ingestion,Scheduled batch and API/file jobs,Reliable movement into platform,"Retries, idempotency, checkpoints, failure alerts"
+Storage,Raw zone + curated tables + SQL warehouse,Preserve source and serve trusted data,"Encryption, retention, backup, least privilege"
+Transformation,Version-controlled SQL/Python,"Clean, standardize, aggregate","Code review, reproducible runs, lineage"
+Data quality,"Schema, null, uniqueness, range, freshness checks",Stop bad data reaching reports,"Quarantine, fail gates, alert owners"
+Analytics,"BI dashboards, KPI reports, SQL analysis",Business insights,"Certified metrics, row-level access, refresh SLA"
+ML / experiments,Versioned datasets and model tracking,Controlled modeling where needed,"Model versioning, validation, approval"
+Serving,Dashboards and approved exports,Stakeholder consumption,"Access logs, sharing controls, data minimization"
+Operations,"Logs, metrics, alerts, CI/CD, backups",Reliability and recovery,"Runbooks, rollback, restore tests, cost monitoring"

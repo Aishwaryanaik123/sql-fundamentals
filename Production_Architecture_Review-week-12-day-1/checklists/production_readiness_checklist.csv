@@ -1,0 +1,13 @@
+Category,Review question,Status,Next action
+Scope,Are source systems and owners identified?,Pending,Confirm source inventory and owners
+Ingestion,"Are retries, idempotency, and failure handling designed?",Recommended,Define retry and quarantine strategy
+Storage,Are raw and curated zones separated?,Recommended,Confirm storage and retention
+Quality,"Are schema, completeness, uniqueness, and freshness tests defined?",Recommended,Implement automated quality gates
+Security,Are access roles least-privilege and secrets protected?,Pending,Complete security review
+Privacy,Are sensitive fields classified and exports controlled?,Pending,Complete data classification
+Performance,Are workload and response targets agreed?,Pending,Define workload and targets
+Observability,"Are logs, metrics, alerts, and runbooks available?",Recommended,Design operational monitoring
+Recovery,"Are backup, restore, RPO, and RTO defined and tested?",Pending,Agree targets and test restore
+Release,"Are CI/CD, code review, and rollback defined?",Recommended,Create release gates
+Cost,"Are budgets, tags, retention, and alerts configured?",Recommended,Assign cost ownership
+Ownership,Are service and data owners assigned?,Pending,Create ownership matrix

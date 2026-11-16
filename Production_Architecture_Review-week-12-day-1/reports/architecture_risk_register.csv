@@ -1,0 +1,9 @@
+ID,Risk,Likelihood,Impact,Mitigation,Owner role,Priority
+R1,Source schema changes break ingestion,Medium,High,"Data contracts, schema checks, alerts, quarantine",Data engineer,High
+R2,Late or missing data makes dashboards stale,Medium,High,"Freshness SLA, job monitoring, last-refresh timestamp",Data engineer / BI owner,High
+R3,Sensitive data exposed through extracts,Medium,High,"Least privilege, masking, row-level security, approved exports",Security / data owner,High
+R4,Incorrect transformations create misleading KPIs,Medium,High,"Metric definitions, peer review, reconciliation tests",Analytics lead,High
+R5,Pipeline failure or deletion causes data loss,Low,High,"Versioned backups, retention, restore drills",Platform owner,Medium
+R6,Uncontrolled compute/storage raises cost,Medium,Medium,"Budgets, lifecycle policies, query optimization, alerts",Platform owner,Medium
+R7,Changes are not traceable,Medium,Medium,"Git change control, release notes, dataset/model versioning",Analytics lead,Medium
+R8,Knowledge concentrated in one person,Medium,Medium,"Runbooks, ownership matrix, documented handover",Team lead,Medium

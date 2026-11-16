@@ -1,0 +1,4 @@
+Suggested branch: feature/week-12-day-1
+Suggested commit: docs: production architecture review and readiness assessment
+
+Stage only this project folder and root README.md. Do not merge into master unless explicitly requested.
