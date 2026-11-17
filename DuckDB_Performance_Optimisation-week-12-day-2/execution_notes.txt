@@ -1,0 +1,10 @@
+WEEK 12 DAY 2 — EXECUTION NOTES
+
+Dataset generation: completed.
+CSV size: 100,000 synthetic sales rows plus header.
+Five SQL analytical queries: included in sql/analytical_queries.sql and src/run_analysis.py.
+Reusable SQL-to-Pandas function: implemented in src/duckdb_utils.py as query_to_df(sql).
+Query result caching: implemented with functools.lru_cache (128 distinct SQL strings).
+Pandas vs DuckDB benchmark: implemented for three equivalent queries in src/benchmark_pandas_vs_duckdb.py.
+
+Environment note: DuckDB is not installed in the artifact-building environment, so live DuckDB execution and measured benchmark timings have not been represented as completed. Install the dependencies and run the commands in README.md to generate real query outputs and benchmark_results.csv on your computer.

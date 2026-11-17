@@ -1,0 +1,9 @@
+Dataset profile
+Rows: 100,000
+Columns: 13
+Date range: 2024-01-01 through 2025-12-30
+Regions: North, South, East, West
+Categories: Electronics, Furniture, Office Supplies
+Customer segments: Consumer, Corporate, Small Business
+Payment methods: Card, UPI, Net Banking, Cash
+Data type: Synthetic, deterministic (random seed 42)

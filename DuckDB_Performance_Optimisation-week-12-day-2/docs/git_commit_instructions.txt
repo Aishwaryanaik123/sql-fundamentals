@@ -1,0 +1,5 @@
+Suggested commit message:
+feat: duckdb in-process sql analytics
+
+Suggested branch: feature/week-12-day-2
+Keep this work on its own feature branch; do not merge into master unless explicitly requested.
