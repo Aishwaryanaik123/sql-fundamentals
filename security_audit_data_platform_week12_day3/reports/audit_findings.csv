@@ -1,0 +1,7 @@
+finding_id,title,severity,observed_risk,recommendation,status
+F-01,Disabled account retains asset access,High,Disabled former_staff still has SELECT permission on employee_records,Remove access grants for disabled accounts and confirm identity offboarding process,Open
+F-02,Inactive account with elevated role,High,temp_user has not logged in for over 90 days and holds platform_admin role,Validate business need; disable account if unused and revoke admin role,Open
+F-03,Overly broad sensitive-data permission,High,temp_user has ALL permissions on restricted customer_profiles,Replace ALL with the minimum required permission and use time-bound approvals,Open
+F-04,Data-access logging disabled,High,data_access and data_exports events are not being logged,Enable access and export logging and test alerting/retention,Open
+F-05,Direct sensitive-data access,Medium,analyst_jane has SELECT access to restricted customer_profiles,Confirm documented need; prefer masked or aggregated view access,Open
+F-06,Role review and grant traceability,Medium,Sample grant inventory should be reviewed for owner and approval evidence,Maintain periodic access reviews and record grant approvals,Open
