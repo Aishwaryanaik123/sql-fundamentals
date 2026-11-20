@@ -1,0 +1,13 @@
+OrderID,Region,Category,Product,Quantity,Sales,Profit,Channel
+ORD001,North,Electronics,Laptop,2,65000,9000,Online
+ORD002,South,Furniture,Chair,5,3500,2500,Store
+ORD003,East,Electronics,Headphones,4,2200,1800,Online
+ORD004,West,Clothing,Jacket,3,2800,1200,Store
+ORD005,North,Furniture,Desk,1,12000,3000,Online
+ORD006,South,Clothing,Shoes,2,4200,1700,Online
+ORD007,East,Electronics,Phone,3,30000,6000,Store
+ORD008,West,Furniture,Sofa,1,25000,5000,Online
+ORD009,North,Clothing,Shirt,6,1200,900,Store
+ORD010,South,Electronics,Tablet,2,18000,4000,Online
+ORD011,East,Furniture,Table,2,8000,2200,Store
+ORD012,West,Clothing,Jeans,4,2600,1400,Online
